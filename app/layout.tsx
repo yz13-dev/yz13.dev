@@ -1,6 +1,8 @@
 import { metaTitle, slogan } from "@/const/app";
 import { getDomain, getURL } from "@/lib/domain";
 import { cn } from "@/lib/utils";
+import { isProduction } from "@/utils/env";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -108,6 +110,11 @@ export default function RootLayout({
       >
         {children}
       </body>
+      {
+        // Google Analytics
+        isProduction() &&
+        <GoogleAnalytics gaId="G-ZHN81DDEZF" />
+      }
     </html>
   );
 }
