@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/sonner";
 import { metaTitle, slogan } from "@/const/app";
 import { getDomain, getURL } from "@/lib/domain";
 import { cn } from "@/lib/utils";
@@ -108,6 +109,7 @@ export default function RootLayout({
       <body
         className={cn("antialiased", sans.variable, mono.variable, serif.variable)}
       >
+        <Toaster position="bottom-center" />
         {children}
       </body>
       {

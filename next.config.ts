@@ -1,4 +1,8 @@
+import { createMDX } from 'fumadocs-mdx/next';
 import type { NextConfig } from "next";
+
+const withMDX = createMDX({});
+
 
 const nextConfig: NextConfig = {
   output: "standalone",
@@ -16,8 +20,12 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "github.com",
       },
+      {
+        protocol: "https",
+        hostname: "checkhouse.app",
+      },
     ],
   },
 };
 
-export default nextConfig;
+export default withMDX(nextConfig);
