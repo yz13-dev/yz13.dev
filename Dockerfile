@@ -19,6 +19,10 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+ENV EMAIL=$EMAIL
+ENV NEXT_PUBLIC_EMAIL=$EMAIL
+ENV HOST_NAME=$HOST_NAME
+ENV NEXT_PUBLIC_HOST_NAME=$HOST_NAME
 ENV NODE_ENV=production
 
 RUN bun run build
@@ -27,8 +31,6 @@ RUN bun run build
 FROM base AS runner
 WORKDIR /app
 
-ENV EMAIL=$EMAIL
-ENV HOST_NAME=$HOST_NAME
 ENV NODE_ENV=production
 ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
