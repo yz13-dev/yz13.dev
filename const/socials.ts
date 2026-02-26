@@ -1,4 +1,4 @@
 
 
 
-export const email = process.env.EMAIL || process.env.NEXT_PUBLIC_EMAIL;
+export const email = process.env.NEXT_PUBLIC_EMAIL || process.env.EMAIL;
