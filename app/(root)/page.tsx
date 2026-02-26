@@ -38,7 +38,7 @@ export default function Home() {
             <CopyButton variant="outline" text={email!} disabled={!email}>
               <CopyIcon />
             </CopyButton>
-            <Button variant="outline" nativeButton={false} render={<Link href={`mailto:${email}`} />}>
+            <Button variant="outline" disabled={!email} nativeButton={false} render={<Link href={`mailto:${email}`} />}>
               <MailIcon />
             </Button>
           </div>
