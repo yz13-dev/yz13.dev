@@ -1,3 +1,4 @@
+import CopyButton from "@/components/copy-button";
 import { LogoFull, LogoIcon } from "@/components/logo-svg";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -34,10 +35,10 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant="outline">
+            <CopyButton variant="outline" text={email!} disabled={!email}>
               <CopyIcon />
-            </Button>
-            <Button variant="outline">
+            </CopyButton>
+            <Button variant="outline" nativeButton={false} render={<Link href={`mailto:${email}`} />}>
               <MailIcon />
             </Button>
           </div>
