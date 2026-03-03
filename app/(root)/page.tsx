@@ -17,15 +17,15 @@ export default function Home() {
 
   return (
     <>
-      <div className="w-full h-[12.5dvh]" />
+      <div className="w-full md:h-[12.5dvh] h-0" />
       <main className="w-full max-w-2xl space-y-6 px-6 mx-auto">
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full h-16 items-center justify-between">
           <div className="flex items-center gap-3">
             <Avatar className="size-10 outline-2 outline-foreground/5">
               <AvatarImage
                 src="https://github.com/yz13-dev.png"
               />
-              <AvatarFallback>YZ13</AvatarFallback>
+              <AvatarFallback>YZ</AvatarFallback>
             </Avatar>
             <div className="flex flex-col">
               <span className="font-medium">yz13</span>
