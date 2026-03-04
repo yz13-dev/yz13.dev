@@ -30,7 +30,7 @@ export default function Home() {
             <div className="flex flex-col">
               <span className="font-medium">yz13</span>
               <span className="text-sm text-muted-foreground">
-                Фронтенд разработчик
+                Фуллстек разработчик
               </span>
             </div>
           </div>
