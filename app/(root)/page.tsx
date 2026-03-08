@@ -1,4 +1,6 @@
 import CopyButton from "@/components/copy-button";
+import { GithubGraphSkeleton } from "@/components/github-graph";
+import GithubContributions from "@/components/github-graph-server";
 import { LogoFull, LogoIcon } from "@/components/logo-svg";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -9,11 +11,13 @@ import { source } from "@/lib/source";
 import { CopyIcon, ExternalLinkIcon, GithubIcon, MailIcon, NotepadTextIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 
 
-export default function Home() {
+export default async function Home() {
 
   const works = source.getPages().filter(page => page.slugs.includes("work"))
+
 
   return (
     <>
@@ -73,6 +77,10 @@ export default function Home() {
             </Card>
           </div>
         </div>
+        {/* contributions */}
+        <Suspense fallback={<GithubGraphSkeleton />}>
+          <GithubContributions />
+        </Suspense>
         {/* blog */}
         <div>
           <div className="py-3">

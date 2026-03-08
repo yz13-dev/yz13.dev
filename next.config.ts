@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   productionBrowserSourceMaps: false,
   enablePrerenderSourceMaps: false,
+  cacheComponents: true,
   experimental: {
     optimizeCss: true,
     serverSourceMaps: false,
