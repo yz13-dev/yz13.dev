@@ -21,7 +21,7 @@ export default async function Home() {
 
   return (
     <>
-      <main className="w-full max-w-2xl space-y-20 px-6 mx-auto">
+      <main className="w-full max-w-2xl space-y-8 px-6 mx-auto">
         <div className="space-y-6 w-full py-8">
           <div className="flex w-full h-16 items-center justify-between">
             <div className="flex items-center gap-3">
@@ -76,9 +76,11 @@ export default async function Home() {
           </div>
         </div>
         {/* contributions */}
-        <Suspense fallback={<GithubGraphSkeleton />}>
-          <GithubContributions />
-        </Suspense>
+        <div className="py-8">
+          <Suspense fallback={<GithubGraphSkeleton />}>
+            <GithubContributions />
+          </Suspense>
+        </div>
         {/* exp */}
         <div>
           <div className="py-3">
