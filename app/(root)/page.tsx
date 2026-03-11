@@ -134,7 +134,7 @@ export default async function Home() {
         <footer>
           <div className="pt-20 flex items-center justify-between mx-auto w-full">
             <span className="text-sm text-muted-foreground">
-              YZ13 - фронтенд разработчик.
+              YZ13 - фуллстек разработчик.
             </span>
             <span className="text-sm text-muted-foreground">2026</span>
           </div>
