@@ -1,11 +1,10 @@
 import CopyButton from "@/components/copy-button";
-import { LogoFull } from "@/components/logo-svg";
+import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@/components/ui/item";
 import { getURL } from "@/lib/domain";
 import { source } from "@/lib/source";
 import { mdxComponents } from "@/mdx-components";
-import { ArrowLeftIcon, ExternalLinkIcon, LinkIcon, NotepadTextIcon } from "lucide-react";
+import { ArrowLeftIcon, ExternalLinkIcon, LinkIcon } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -58,18 +57,19 @@ export default async function Page({ params }: PageProps) {
             {
               group
                 .map(item => (
-                  <Item key={item.path} variant="muted">
-                    <ItemMedia>
-                      <NotepadTextIcon />
-                    </ItemMedia>
-                    <ItemContent>
-                      <ItemTitle>{item.data.title}</ItemTitle>
-                      <ItemDescription className="text-balance">{item.data.description}</ItemDescription>
-                    </ItemContent>
-                    <ItemActions>
-                      <Button nativeButton={false} variant="secondary" render={<Link href={item.url} />}><ExternalLinkIcon /></Button>
-                    </ItemActions>
-                  </Item>
+                  <div key={item.path} className="relative">
+                    {item.url && <Link href={item.url} className="absolute inset-0" />}
+                    <div className="flex items-center justify-between gap-2">
+                      <span>
+                        <span className="font-medium">{item.data.title}</span>
+                        {" - "}
+                        <span className="text-muted-foreground">{item.data.description}</span>
+                      </span>
+                      <Button nativeButton={false} variant="ghost" size="icon-xs" render={<Link href={item.url} />}>
+                        <ExternalLinkIcon />
+                      </Button>
+                    </div>
+                  </div>
                 ))
             }
           </div>
@@ -78,16 +78,8 @@ export default async function Page({ params }: PageProps) {
           MDX &&
           <MDX components={mdxComponents} />
         }
-        <footer>
-          <div className="pt-20 flex items-center justify-between mx-auto w-full">
-            <span className="text-sm text-muted-foreground">
-              YZ13 - фуллстек разработчик.
-            </span>
-            <span className="text-sm text-muted-foreground">2026</span>
-          </div>
-          <LogoFull className="py-20 opacity-10" />
-        </footer>
       </main>
+      <Footer />
     </>
   )
 }
