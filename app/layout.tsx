@@ -118,7 +118,7 @@ export default function RootLayout({
       {
         // Google Analytics
         isProduction() &&
-        <GoogleAnalytics gaId="G-ZHN81DDEZF" />
+        <GoogleAnalytics gaId="G-Y05QY597ZL" />
       }
     </html>
   );
