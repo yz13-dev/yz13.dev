@@ -9,21 +9,23 @@ export function LogoIcon({ className, ...props }: Props) {
   return (
     <svg
       className={className}
-      width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+      width="40" height="40" viewBox="0 0 61 40" fill="none" xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g clipPath="url(#clip0_1109_2517)">
-        <rect x="18" width="4" height="40" fill="var(--foreground)" />
-        <rect x="27" y="3" width="4" height="34" fill="var(--foreground)" />
-        <rect x="9" y="3" width="4" height="34" fill="var(--foreground)" />
-        <rect x="36" y="11" width="4" height="18" fill="var(--foreground)" />
-        <rect y="11" width="4" height="18" fill="var(--foreground)" />
-      </g>
-      <defs>
-        <clipPath id="clip0_1109_2517">
-          <rect width="40" height="40" fill="var(--foreground)" />
-        </clipPath>
-      </defs>
+      <path d="M4.01316 4H0V36H4.01316L4.01307 40H8.02632V36H4.01316V4H8.02632V0H4.01316V4Z" fill="var(--foreground)" />
+      <path d="M28.2526 27.8571V39.9998H32.7474V27.8571H28.2526Z" fill="var(--foreground)" />
+      <path d="M41.7368 21.4286V25H45.4825V21.4287L41.7368 21.4286Z" fill="var(--foreground)" />
+      <path d="M45.4825 25V28.5714H49.2281V25H45.4825Z" fill="var(--foreground)" />
+      <path d="M19.2632 21.4287L15.5175 21.4286V25H19.2632V21.4287Z" fill="var(--foreground)" />
+      <path d="M15.5175 25H11.7719V28.5714H15.5175V25Z" fill="var(--foreground)" />
+      <path d="M17.7649 5V8.57143H21.5105V5H17.7649Z" fill="var(--foreground)" />
+      <path d="M14.0193 5H17.7649V1.42857H14.0193V5Z" fill="var(--foreground)" />
+      <path d="M43.2351 5H39.4895V8.57143H43.2351V5Z" fill="var(--foreground)" />
+      <path d="M43.2351 1.42857V5H46.9807V1.42857H43.2351Z" fill="var(--foreground)" />
+      <path d="M37.9912 26.4286V30H41.7368V26.4286H37.9912Z" fill="var(--foreground)" />
+      <path d="M23.0088 26.4286H19.2632V30H23.0088V26.4286Z" fill="var(--foreground)" />
+      <path d="M28.2526 3.57143V8.57143H25.2561V12.1429H15.5175V15.7143H19.2632V19.2857L23.0088 19.2857V26.4286H26.7544V22.8571H34.2456V26.4286H37.9912V19.2857H41.7368L41.7368 15.7143H45.4824L45.4824 12.1429H35.7438L35.7436 8.57143H32.752C32.752 7.26914 32.7474 3.57143 32.7474 3.57143H28.2526Z" fill="var(--foreground)" />
+      <path d="M56.9868 4H61V36H56.9868L56.9869 40H52.9737V36H56.9868V4H52.9737V0H56.9868V4Z" fill="var(--foreground)" />
     </svg>
 
   )

@@ -8,14 +8,9 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Inter } from "next/font/google";
 
-const sans = localFont({
-  src: "./fonts/google-sans.ttf",
-  variable: "--font-sans",
-  display: "swap",
-  preload: true,
-  fallback: ["system-ui", "Inter", "sans-serif"],
-});
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 const mono = localFont({
   src: "./fonts/jetbrains-mono.ttf",
   variable: "--font-mono",
@@ -105,10 +100,10 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      suppressHydrationWarning
+      suppressHydrationWarning className={cn("font-sans", inter.variable)}
     >
       <body
-        className={cn("antialiased", sans.variable, mono.variable, serif.variable)}
+        className={cn("antialiased", inter.variable, mono.variable, serif.variable)}
       >
         <TooltipProvider>
           <Toaster position="bottom-center" />
