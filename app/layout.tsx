@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 import { isProduction } from "@/utils/env";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Inter } from "next/font/google";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 const mono = localFont({

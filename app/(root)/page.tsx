@@ -1,15 +1,17 @@
+import CalComEmbed from "@/components/calcom-embed";
+import { CheckhouseLogoIcon } from "@/components/checkhouse-icon";
 import CopyButton from "@/components/copy-button";
 import Footer from "@/components/footer";
 import { GithubGraphSkeleton } from "@/components/github-graph";
 import GithubContributions from "@/components/github-graph-server";
-import { LogoIcon } from "@/components/logo-svg";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { ButtonGroup } from "@/components/ui/button-group";
 import { WorkExperience } from "@/components/work-experience/work-experience";
 import { WORK_EXPERIENCE } from "@/const/exp";
 import { email } from "@/const/socials";
 import { source } from "@/lib/source";
-import { CopyIcon, ExternalLinkIcon, GithubIcon, MailIcon } from "lucide-react";
+import { BriefcaseIcon, CalendarIcon, CopyIcon, ExternalLinkIcon, GithubIcon, HomeIcon, MailIcon, SendIcon } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -21,9 +23,9 @@ export default async function Home() {
 
   return (
     <>
-      <main className="w-full max-w-2xl space-y-8 px-6 mx-auto">
-        <div className="space-y-6 w-full py-8">
-          <div className="flex w-full h-16 items-center justify-between">
+      <main className="w-full max-w-2xl space-y-8 md:p-12 p-4">
+        <div className="space-y-6 w-full">
+          <div className="flex w-full h-fit items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="flex flex-col">
                 <div className="flex flex-row items-center gap-2">
@@ -34,7 +36,10 @@ export default async function Home() {
                     />
                     <AvatarFallback>YZ</AvatarFallback>
                   </Avatar>
-                  <span className="font-medium">YZ13</span>
+                  <div className="flex flex-row items-center gap-2">
+                    <span className="font-medium">YZ13</span>
+                    <span className="font-medium text-muted-foreground">@yz13-dev</span>
+                  </div>
                 </div>
                 <span className="text-sm text-muted-foreground">
                   Фуллстек разработчик
@@ -42,17 +47,37 @@ export default async function Home() {
               </div>
             </div>
             <div className="flex items-center gap-2">
+              <Button variant="link" nativeButton={false} render={<Link href="/" />}>
+                <HomeIcon />
+                <span className="md:inline hidden">Главная</span>
+              </Button>
+              <Button variant="link" nativeButton={false} render={<Link href="/works" />}>
+                <BriefcaseIcon />
+                <span className="md:inline hidden">Работы</span>
+              </Button>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <ButtonGroup>
               <CopyButton variant="outline" text={email!} disabled={!email}>
                 <CopyIcon />
               </CopyButton>
               <Button variant="outline" disabled={!email} nativeButton={false} render={<Link href={`mailto:${email}`} />}>
                 <MailIcon />
               </Button>
-            </div>
+            </ButtonGroup>
+            <Button variant="outline">
+              <SendIcon />
+              <span>Написать</span>
+            </Button>
+            <CalComEmbed variant="outline">
+              <CalendarIcon />
+              <span>Созвон</span>
+            </CalComEmbed>
           </div>
           <p className="text-muted-foreground leading-7 text-base text-balance align-bottom">
             В данный момент разрабатываю <Link aria-label="Checkhouse" target="_blank" className="px-1 bg-secondary rounded-md h-5 text-foreground underline" rel="noopener" href="https://checkhouse.app">
-              <LogoIcon className="size-[14px] inline-block mb-0.5 mr-1" />
+              <CheckhouseLogoIcon className="size-[14px] inline-block mb-0.5 mr-1" />
               Checkhouse</Link>, для мониторинга доступности(непрерывности работы) сайтов и серверов.
           </p>
           <p className="text-muted-foreground leading-7 text-base text-balance">
