@@ -66,7 +66,7 @@ const DEFAULT_MONTH_LABELS = [
 const DEFAULT_LABELS: Labels = {
   months: DEFAULT_MONTH_LABELS,
   weekdays: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
-  totalCount: "{{count}} activities in {{year}}",
+  totalCount: "{{count}} активностей в {{year}}",
   legend: {
     less: "Больше",
     more: "Меньше",
@@ -497,14 +497,14 @@ export const ContributionGraphLegend = ({
       {...props}
     >
       <span className="mr-1 text-muted-foreground">
-        {labels.legend?.less || "Less"}
+        {labels.legend?.less || "Меньше"}
       </span>
       {new Array(maxLevel + 1).fill(undefined).map((_, level) =>
         children ? (
           <Fragment key={level}>{children({ level })}</Fragment>
         ) : (
           <svg height={blockSize} key={level} width={blockSize}>
-            <title>{`${level} contributions`}</title>
+            <title>{`${level} активностей`}</title>
             <rect
               className={cn(
                 "stroke-[1px] stroke-border",
