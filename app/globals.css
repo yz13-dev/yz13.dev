@@ -178,6 +178,11 @@ body {
     @apply border-border outline-ring/50;
   }
 
+  ::selection {
+    background-color: var(--color-muted-foreground);
+    color: var(--color-background);
+  }
+
   body {
     @apply bg-background text-foreground;
   }
