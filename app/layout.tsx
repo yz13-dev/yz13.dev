@@ -6,11 +6,12 @@ import { cn } from "@/lib/utils";
 import { isProduction } from "@/utils/env";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
+import { ThemeProvider } from "next-themes";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const mono = localFont({
   src: "./fonts/jetbrains-mono.ttf",
   variable: "--font-mono",
@@ -105,10 +106,17 @@ export default function RootLayout({
       <body
         className={cn("antialiased", inter.variable, mono.variable, serif.variable)}
       >
-        <TooltipProvider>
-          <Toaster position="bottom-center" />
-          {children}
-        </TooltipProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem={true}
+          enableColorScheme={true}
+        >
+          <TooltipProvider>
+            <Toaster position="bottom-center" />
+            {children}
+          </TooltipProvider>
+        </ThemeProvider>
       </body>
       {
         // Google Analytics

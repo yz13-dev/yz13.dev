@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { getURL } from "@/lib/domain";
 import { source } from "@/lib/source";
 import { mdxComponents } from "@/mdx-components";
-import { ArrowLeftIcon, ExternalLinkIcon, LinkIcon } from "lucide-react";
+import { ArrowLeftIcon, LinkIcon } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -39,7 +39,7 @@ export default async function Page({ params }: PageProps) {
   return (
     <>
       <div className="w-full h-[12.5dvh]" />
-      <main className="w-full max-w-2xl space-y-6 px-6 mx-auto">
+      <main className="w-full max-w-2xl space-y-6 md:p-12 p-4 mx-auto">
         <div className="flex items-center justify-between">
           <Button variant="secondary" nativeButton={false} render={<Link href="/" />}>
             <ArrowLeftIcon />
@@ -57,7 +57,7 @@ export default async function Page({ params }: PageProps) {
             {
               group
                 .map(item => (
-                  <div key={item.path} className="relative">
+                  <div key={item.path} className="relative py-2 px-3 h-fit rounded-md hover:bg-secondary w-full transition-colors">
                     {item.url && <Link href={item.url} className="absolute inset-0" />}
                     <div className="flex items-center justify-between gap-2">
                       <span>
@@ -65,9 +65,6 @@ export default async function Page({ params }: PageProps) {
                         {" - "}
                         <span className="text-muted-foreground">{item.data.description}</span>
                       </span>
-                      <Button nativeButton={false} variant="ghost" size="icon-xs" render={<Link href={item.url} />}>
-                        <ExternalLinkIcon />
-                      </Button>
                     </div>
                   </div>
                 ))
@@ -79,7 +76,7 @@ export default async function Page({ params }: PageProps) {
           <MDX components={mdxComponents} />
         }
       </main>
-      <Footer />
+      <Footer className="mx-auto" />
     </>
   )
 }

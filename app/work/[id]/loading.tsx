@@ -1,4 +1,4 @@
-import { LogoFull } from "@/components/logo-svg";
+import Footer from "@/components/footer";
 import { Skeleton } from "@/components/ui/skeleton";
 
 
@@ -35,16 +35,8 @@ export default function Loading() {
         <Skeleton className="w-2/3 h-7" />
         <Skeleton className="w-1/4 h-7" />
 
-        <footer>
-          <div className="pt-20 flex items-center justify-between mx-auto w-full">
-            <span className="text-sm text-muted-foreground">
-              YZ13 - фронтенд разработчик.
-            </span>
-            <span className="text-sm text-muted-foreground">2026</span>
-          </div>
-          <LogoFull className="py-20 opacity-10" />
-        </footer>
       </main>
+      <Footer className="mx-auto" />
     </>
   )
 }

@@ -1,0 +1,14 @@
+{
+  "projects": [
+    {
+      "id": "checkhouse",
+      "date": "2026-03-20",
+      "title": "Checkhouse",
+      "description": "Мониторинг сайтов и серверов",
+      "url": "https://checkhouse.app",
+      "tags": [
+        "проект"
+      ]
+    }
+  ]
+}

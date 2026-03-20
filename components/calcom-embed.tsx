@@ -26,7 +26,7 @@ export default function CalComEmbed({
       className={className}
       variant={variant}
       size={size}
-      nativeButton={false}
+      nativeButton={true}
       {...props}
     >
       {children}

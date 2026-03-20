@@ -5,20 +5,64 @@ import Footer from "@/components/footer";
 import { GithubGraphSkeleton } from "@/components/github-graph";
 import GithubContributions from "@/components/github-graph-server";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
-import { WorkExperience } from "@/components/work-experience/work-experience";
-import { WORK_EXPERIENCE } from "@/const/exp";
-import { email } from "@/const/socials";
-import { source } from "@/lib/source";
-import { BriefcaseIcon, CalendarIcon, CopyIcon, ExternalLinkIcon, GithubIcon, HomeIcon, MailIcon, SendIcon } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+import { email, telegram } from "@/const/socials";
+import { getTimeline, TimelineItem } from "@/utils/timeline";
+import { BriefcaseIcon, CalendarIcon, CopyIcon, GithubIcon, HomeIcon, MailIcon, SendIcon } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
+
+const TimelineDot = () => {
+  return (
+    <div className="size-8 shrink-0 flex items-start px-2 justify-start">
+      <div className="relative -left-2 size-4 flex items-center justify-center bg-background">
+        <div className="size-2 rounded-xs bg-foreground" />
+      </div>
+    </div>
+  );
+};
+
+const TimelineCard = ({ work }: { work: TimelineItem }) => {
+
+  const date = new Date(work.date);
+  const formattedDate = date.toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" });
+
+  return (
+    <div className="flex items-center gap-0 z-10">
+      <TimelineDot />
+      <div className="py-2 px-3 h-fit rounded-md hover:bg-secondary w-full transition-colors">
+        <div className="relative w-full flex items-center justify-between gap-4">
+          {
+            work.type === "project" && work.url &&
+            <Link href={work.url} className="absolute inset-0" />
+          }
+          {
+            work.type === "work" &&
+            <Link href={`/work/${work.id}`} className="absolute inset-0" />
+          }
+          <div className="flex flex-col w-full gap-0.5">
+            <div className="flex w-full items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <Badge variant="secondary">Работа</Badge>
+                <span className="font-medium text-sm">{work.title}</span>
+              </div>
+              <span className="text-muted-foreground text-sm">{formattedDate}</span>
+            </div>
+            <span className="text-sm text-muted-foreground">{work.description}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 
 export default async function Home() {
 
-  const works = source.getPages().filter(page => page.slugs.includes("work"))
+  const timeline = getTimeline();
 
 
   return (
@@ -62,14 +106,17 @@ export default async function Home() {
               <CopyButton variant="outline" text={email!} disabled={!email}>
                 <CopyIcon />
               </CopyButton>
-              <Button variant="outline" disabled={!email} nativeButton={false} render={<Link href={`mailto:${email}`} />}>
+              <Button variant="outline" disabled={!email} nativeButton={false} render={<Link href={`mailto:${email}`} target="_blank" rel="noopener" />}>
                 <MailIcon />
               </Button>
             </ButtonGroup>
-            <Button variant="outline">
-              <SendIcon />
-              <span>Написать</span>
-            </Button>
+            {
+              telegram &&
+              <Button variant="outline" nativeButton={false} render={<Link href={telegram} target="_blank" rel="noopener" />}>
+                <SendIcon />
+                <span>Написать</span>
+              </Button>
+            }
             <CalComEmbed variant="outline">
               <CalendarIcon />
               <span>Созвон</span>
@@ -84,93 +131,27 @@ export default async function Home() {
             Готов помочь с разработкой и поддержкой проектов на React и NextJS. Можете связаться со мной через <Link href="https://t.me/yz13_dev" rel="noopener" className="px-1 bg-secondary rounded-md h-5 text-foreground underline">@yz13_dev</Link>, или <Link href={`mailto:${email}`} className="px-1 bg-secondary rounded-md h-5 text-foreground underline"><MailIcon className="size-[14px] inline-block mb-0.5 mr-1" />Почту</Link>, также загляните на мой <Link href="https://github.com/yz13-dev" className="px-1 bg-secondary rounded-md h-5 text-foreground underline"><GithubIcon className="size-[14px] inline-block mb-0.5 mr-1" />Github</Link>
           </p>
         </div>
-        {/* projects */}
-        <div>
-          <div className="py-3">
-            <span className="text-xl font-medium">Проекты</span>
-          </div>
-          <div className="space-y-6">
-            <div className="relative flex items-center justify-between w-full gap-4 py-3">
-              <Link href="https://checkhouse.app" className="absolute inset-0" />
-              <div className="flex flex-col">
-                <span className="font-medium">Checkhouse</span>
-                <span className="text-muted-foreground">Мониторинг сайтов и серверов</span>
-              </div>
-              <Button nativeButton={false} variant="ghost" render={<Link href="https://checkhouse.app" />}><ExternalLinkIcon /></Button>
-            </div>
-          </div>
-        </div>
         {/* contributions */}
         <div className="py-8">
           <Suspense fallback={<GithubGraphSkeleton />}>
             <GithubContributions />
           </Suspense>
         </div>
-        {/* exp */}
-        <div>
-          <div className="py-3">
-            <span className="text-xl font-medium">Опыт</span>
+        {/* timeline */}
+        <div className="w-full relative">
+          <div className="absolute left-0 top-0 w-8 px-2 h-full flex justify-start">
+            <Separator orientation="vertical" className="-z-1" />
           </div>
-          <WorkExperience className="w-full px-0" experiences={WORK_EXPERIENCE} />
-        </div>
-        {/* blog */}
-        <div>
-          <div className="py-3">
-            <span className="text-xl font-medium">Блог</span>
-          </div>
-          <div className="space-y-3">
+          <div className="w-full space-y-6">
             {
-              works
-                .filter((item, index, arr) => {
-                  const isInItems = arr.some(work => (work.data.items || []).includes(item.data.id))
-                  return !isInItems
-                })
-                .map(work => {
+              timeline.map(item => {
 
-                  const date = new Date(work.data.date)
-
-                  const items = (work.data.items || []).map(item => works.find(work => work.data.id === item)).filter(item => item !== undefined);
-                  return (
-                    <div key={work.path} className="relative">
-                      <span className="md:absolute md:-left-12 top-3.5 left-0 text-sm text-muted-foreground">{date.getFullYear()}</span>
-                      {work.url && <Link href={work.url} className="absolute inset-0" />}
-                      <div className="flex items-center justify-between py-3 gap-2">
-                        <span>
-                          <span className="font-medium">{work.data.title}</span>
-                          {" - "}
-                          <span className="text-muted-foreground">{work.data.description}</span>
-                        </span>
-                        <Button nativeButton={false} variant="ghost" size="icon-xs" render={<Link href={work.url} />}>
-                          <ExternalLinkIcon />
-                        </Button>
-                      </div>
-                      <div className="py-3 space-y-3">
-                        {
-                          items
-                            .map(item => (
-                              <div key={item.path} className="relative">
-                                {item.url && <Link href={item.url} className="absolute inset-0" />}
-                                <div className="flex items-center justify-between gap-2">
-                                  <span>
-                                    <span className="font-medium">{item.data.title}</span>
-                                    {" - "}
-                                    <span className="text-muted-foreground">{item.data.description}</span>
-                                  </span>
-                                  <Button nativeButton={false} variant="ghost" size="icon-xs" render={<Link href={item.url} />}>
-                                    <ExternalLinkIcon />
-                                  </Button>
-                                </div>
-                              </div>
-                            ))
-                        }
-                      </div>
-                    </div>
-                  )
-                })
+                return <TimelineCard work={item} key={item.id} />
+              })
             }
           </div>
         </div>
-      </main>
+      </main >
       <Footer />
     </>
   );
