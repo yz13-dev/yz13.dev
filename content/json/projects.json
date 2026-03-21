@@ -1,14 +1,12 @@
 {
   "projects": [
     {
-      "id": "checkhouse",
+      "id": "checkhouse-app",
       "date": "2026-03-20",
       "title": "Checkhouse",
       "description": "Следите за доступностью сервисов, мгновенно обнаруживайте сбои и делитесь публичной страницей статуса.",
       "url": "https://checkhouse.app",
-      "tags": [
-        "проект"
-      ]
+      "tags": ["проект"]
     }
   ]
 }
