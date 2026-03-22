@@ -3,26 +3,26 @@
 import { cn } from "@/lib/utils";
 import type { Day as WeekDay } from "date-fns";
 import {
-  differenceInCalendarDays,
-  eachDayOfInterval,
-  formatISO,
-  getDay,
-  getMonth,
-  getYear,
-  nextDay,
-  parseISO,
-  subWeeks,
+    differenceInCalendarDays,
+    eachDayOfInterval,
+    formatISO,
+    getDay,
+    getMonth,
+    getYear,
+    nextDay,
+    parseISO,
+    subWeeks,
 } from "date-fns";
 import {
-  createContext,
-  type CSSProperties,
-  Fragment,
-  type HTMLAttributes,
-  type ReactNode,
-  useContext,
-  useLayoutEffect,
-  useMemo,
-  useRef,
+    createContext,
+    type CSSProperties,
+    Fragment,
+    type HTMLAttributes,
+    type ReactNode,
+    useContext,
+    useLayoutEffect,
+    useMemo,
+    useRef,
 } from "react";
 
 export type Activity = {
@@ -68,8 +68,8 @@ const DEFAULT_LABELS: Labels = {
   weekdays: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
   totalCount: "{{count}} активностей в {{year}}",
   legend: {
-    less: "Больше",
-    more: "Меньше",
+    less: "Меньше",
+    more: "Больше",
   },
 };
 
