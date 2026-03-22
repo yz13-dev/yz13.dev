@@ -77,7 +77,7 @@ export const mdxComponents: MDXComponents = {
   ),
   p: ({ className, ...props }: React.ComponentProps<"p">) => (
     <p
-      className={cn("leading-relaxed text-lg text-foreground/80 [&:not(:first-child)]:my-6", className)}
+      className={cn("leading-relaxed text-lg text-muted-foreground [&:not(:first-child)]:my-6", className)}
       {...props}
     />
   ),

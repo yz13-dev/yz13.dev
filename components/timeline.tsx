@@ -6,7 +6,7 @@ import { Separator } from "./ui/separator";
 
 export const TimelineDot = () => {
   return (
-    <div className="size-8 shrink-0 flex items-start px-2 justify-start">
+    <div className="size-8 shrink-0 flex items-center px-2 justify-start">
       <div className="relative -left-2 size-4 flex items-center justify-center bg-background">
         <div className="size-2 rounded-xs bg-foreground" />
       </div>
@@ -24,7 +24,7 @@ export const TimelineCard = ({ item }: { item: TimelineItem }) => {
   });
 
   return (
-    <article className="flex items-center gap-1 z-10">
+    <article className="flex items-start gap-1 z-10">
       <TimelineDot />
       <div className="py-2 px-3 h-fit rounded-md hover:bg-secondary w-full transition-colors">
         <div className="relative w-full flex items-center justify-between gap-4">
@@ -34,7 +34,7 @@ export const TimelineCard = ({ item }: { item: TimelineItem }) => {
           {item.type === "work" && (
             <Link href={`/work/${item.id}`} className="absolute inset-0" />
           )}
-          <div className="flex flex-col w-full gap-0.5">
+          <div className="flex flex-col w-full gap-2">
             <div className="flex w-full items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 {tags.map((tag) => {
@@ -55,7 +55,7 @@ export const TimelineCard = ({ item }: { item: TimelineItem }) => {
                 {formattedDate}
               </span>
             </div>
-            <span className="text-sm text-muted-foreground">
+            <span className="text-sm text-muted-foreground line-clamp-3">
               {item.description}
             </span>
           </div>

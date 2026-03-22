@@ -12,6 +12,7 @@ export const meta = z.object({
   pinned: z.boolean().optional(),
   published: z.boolean().optional(),
   banner: z.string().optional(),
+  url: z.url().optional(),
   data: z.record(z.string(), z.any()).optional(),
   items: z.array(z.string()).optional(),
 })
