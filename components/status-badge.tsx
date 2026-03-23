@@ -1,6 +1,8 @@
 import { getURL } from "@/lib/domain";
 import { cn } from "@/lib/utils";
 import { isDevelopment } from "@/utils/env";
+import { ComponentPropsWithoutRef } from "react";
+import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
 
 export const StatusBadgeSkeleton = ({
@@ -13,7 +15,7 @@ export const StatusBadgeSkeleton = ({
 
 const PORT = process.env.PORT || 5173
 
-export default async function StatusBadge({ className = "", variant = "ghost", size = "default", ...props }: ButtonProps) {
+export default async function StatusBadge({ className = "", variant = "ghost", size = "default", ...props }: ComponentPropsWithoutRef<typeof Button>) {
   if (isDevelopment()) return <StatusBadgeSkeleton className="h-9 w-56" />
 
   const url = getURL(`/badge?variant=${variant}&lang=ru`, "status");
