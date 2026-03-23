@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils";
+import { Suspense } from "react";
 import { ThemeSwitcher } from "./kibo-ui/theme-switcher";
 import { LogoFull } from "./logo-svg";
+import StatusBadge, { StatusBadgeSkeleton } from "./status-badge";
 import { Separator } from "./ui/separator";
 
 export default function Footer({ className = "" }: { className?: string }) {
@@ -12,6 +14,11 @@ export default function Footer({ className = "" }: { className?: string }) {
           YZ13 - фуллстек разработчик / 2026
         </span>
         <ThemeSwitcher />
+      </div>
+      <div className="flex justify-end mx-auto w-full">
+        <Suspense fallback={<StatusBadgeSkeleton />}>
+          <StatusBadge />
+        </Suspense>
       </div>
       <LogoFull className="py-20 opacity-10" />
     </footer>
