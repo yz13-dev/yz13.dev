@@ -15,7 +15,7 @@ export default function Footer({ className = "" }: { className?: string }) {
         </span>
         <ThemeSwitcher />
       </div>
-      <div className="flex justify-end mx-auto w-full">
+      <div className="flex justify-start mx-auto w-full">
         <Suspense fallback={<StatusBadgeSkeleton />}>
           <StatusBadge />
         </Suspense>
