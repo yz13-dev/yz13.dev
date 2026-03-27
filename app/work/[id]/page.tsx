@@ -1,5 +1,4 @@
 import CopyButton from "@/components/copy-button";
-import Footer from "@/components/footer";
 import { ThemeSwitcher } from "@/components/kibo-ui/theme-switcher";
 import { LogoIcon } from "@/components/logo-svg";
 import { Button } from "@/components/ui/button";
@@ -34,7 +33,7 @@ export default async function Page({ params }: PageProps) {
     .filter(page => page.slugs.includes("work"))
     .filter(page => items.includes(page.data.id))
 
-  const url = doc.url|| null
+  const url = doc.url || null
 
   const text = await doc.getText("raw");
   const docData = text.length > 0 ? await doc.load() : null;
@@ -45,16 +44,16 @@ export default async function Page({ params }: PageProps) {
       <main className="w-full max-w-2xl space-y-6 md:p-12 p-4 mx-auto">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-          <Button variant="secondary" nativeButton={false} render={<Link href="/" />}>
-            <ArrowLeftIcon />
-          </Button>
-          <LogoIcon className="h-9" />
+            <Button variant="secondary" nativeButton={false} render={<Link href="/works" />}>
+              <ArrowLeftIcon />
+            </Button>
+            <LogoIcon className="h-9" />
           </div>
           <div className="flex items-center gap-2">
             <ThemeSwitcher />
-          <CopyButton variant="secondary" text={getURL(page.url)}>
-            <LinkIcon />
-          </CopyButton>
+            <CopyButton variant="secondary" text={getURL(page.url)}>
+              <LinkIcon />
+            </CopyButton>
           </div>
         </div>
         <div>
@@ -65,10 +64,10 @@ export default async function Page({ params }: PageProps) {
           {
             url &&
             <div className="flex items-center gap-2">
-                <Button variant="outline" nativeButton={false} render={<Link href={url} />}>
-                  <GlobeIcon />
-                  <span>Посетить сайт</span>
-                </Button>
+              <Button variant="outline" nativeButton={false} render={<Link href={url} />}>
+                <GlobeIcon />
+                <span>Посетить сайт</span>
+              </Button>
             </div>
           }
           <div className="space-y-3">
@@ -94,7 +93,7 @@ export default async function Page({ params }: PageProps) {
           <MDX components={mdxComponents} />
         }
       </main>
-      <Footer className="mx-auto" />
+      {/*<Footer className="mx-auto" />*/}
     </>
   )
 }
