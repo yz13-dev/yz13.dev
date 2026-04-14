@@ -1,4 +1,4 @@
-import { LogoIcon } from "@/components/logo-svg";
+import { CheckhouseLogoIcon } from "@/components/checkhouse-icon";
 import WallCard from "@/components/wall-card";
 
 
@@ -8,14 +8,14 @@ export default function Component() {
   return (
     <WallCard
       type="logo"
-      name="yz13 logo"
+      name="checkhouse logo"
       fill
       className="aspect-square"
       containerClassName="bg-muted pt-0!"
-      label="YZ13 лого"
+      label="Checkhouse лого"
     >
       <div className="size-full">
-        <LogoIcon width="100%" height="100%" />
+        <CheckhouseLogoIcon width="100%" height="100%" />
       </div>
     </WallCard>
   )

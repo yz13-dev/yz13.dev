@@ -1,4 +1,3 @@
-
 import WallCard from "@/components/wall-card";
 import Image from "next/image";
 
@@ -8,8 +7,8 @@ export default function Component() {
 
   return (
     <WallCard
-      type="a"
-      name="b"
+      type="screenshot"
+      name="reservia client"
       className="aspect-square dark"
       containerClassName="bg-muted"
     >

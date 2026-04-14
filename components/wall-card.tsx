@@ -18,7 +18,7 @@ type WallCardProps = {
 export default function WallCard({ label, className = "", containerClassName = "", type, name, link, children, fill = false }: WallCardProps) {
 
   return (
-    <GridCell className={cn("size-full bg-card", className)}>
+    <GridCell className={cn("size-full bg-card overflow-clip", className)}>
       <div className="size-full group flex flex-col">
         <GridCell
           className={cn(
@@ -31,10 +31,13 @@ export default function WallCard({ label, className = "", containerClassName = "
             <DotIcon className="size-4 text-muted-foreground" />
             <span className="text-sm text-muted-foreground">{name}</span>
           </div>
-          <Button variant="ghost" size="xs">
-            <span>Открыть</span>
-            <ArrowUpRightIcon />
-          </Button>
+          {
+            link &&
+            <Button variant="ghost" size="xs">
+              <span>Открыть</span>
+              <ArrowUpRightIcon />
+            </Button>
+          }
         </GridCell>
         <div className={cn(
           "w-full flex relative items-end overflow-hidden justify-center md:px-8 md:pt-8 px-4 pt-4",
@@ -45,8 +48,8 @@ export default function WallCard({ label, className = "", containerClassName = "
           {label &&
             <Badge
               className={cn(
-                "absolute bottom-2 left-2 text-lg h-fit border-none px-3 transition-colors",
-                fill ? "group-hover:bg-foreground group-hover:text-background bg-transparent text-foreground" : ""
+                "absolute bottom-3 left-3 text-base h-fit border-none px-3 transition-colors backdrop-blur-[2px]",
+                fill ? "group-hover:bg-foreground/50 group-hover:text-background bg-transparent text-foreground" : ""
               )}
             >
               {label}
