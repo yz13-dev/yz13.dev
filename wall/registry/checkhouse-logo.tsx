@@ -14,8 +14,10 @@ export default function Component() {
       containerClassName="bg-muted pt-0!"
       label="Checkhouse лого"
     >
-      <div className="size-full">
-        <CheckhouseLogoIcon width="100%" height="100%" />
+      <div className="size-full flex items-center justify-center">
+        <div className="size-[60%]">
+          <CheckhouseLogoIcon width="100%" height="100%" />
+        </div>
       </div>
     </WallCard>
   )

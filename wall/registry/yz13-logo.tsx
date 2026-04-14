@@ -14,8 +14,10 @@ export default function Component() {
       containerClassName="bg-muted pt-0!"
       label="YZ13 лого"
     >
-      <div className="size-full">
-        <LogoIcon width="100%" height="100%" />
+      <div className="size-full flex items-center justify-center">
+        <div className="size-[60%]">
+          <LogoIcon width="100%" height="100%" />
+        </div>
       </div>
     </WallCard>
   )
