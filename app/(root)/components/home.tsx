@@ -15,7 +15,7 @@ export default async function Home() {
   const wall = getWall()
 
   return (
-    <div className="w-full relative">
+    <div className="w-full h-fit relative">
       <div className="size-full -z-50 absolute inset-0 pattern-paper" />
       <div className="w-full h-fit pattern-grid">
         <div className="w-full container mx-auto space-y-8 md:p-12 sm:p-4 p-0">

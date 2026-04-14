@@ -9,7 +9,7 @@ export default function Component() {
     <WallCard
       type="screenshot"
       name="reservia partner"
-      className="dark"
+      className="aspect-square dark"
       containerClassName="bg-muted"
     >
       <div className="size-full relative">
