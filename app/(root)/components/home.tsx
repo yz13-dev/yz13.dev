@@ -19,7 +19,7 @@ export default async function Home() {
       <div className="size-full -z-50 absolute inset-0 pattern-paper" />
       <div className="w-full h-fit pattern-grid">
         <div className="w-full container mx-auto space-y-8 md:p-12 p-4">
-          <GridCell className="grid lg:grid-cols-4 grid-cols-2">
+          <GridCell className="grid lg:grid-cols-4 grid-cols-2 bg-background">
             <GridCell className="col-span-2 row-span-2 p-8 bg-background">
               <main className="size-full flex flex-col gap-8">
                 <Header />
