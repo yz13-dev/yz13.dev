@@ -9,7 +9,7 @@ export default function Component() {
     <WallCard
       type="screenshot"
       name="reservia admin"
-      className="aspect-[2] col-span-2 dark"
+      className="aspect-[2] sm:col-span-2 dark"
       containerClassName="bg-muted"
     >
       <div className="rounded-t-xl bg-background border-x relative overflow-clip border-t drop-shadow-2xl size-full">

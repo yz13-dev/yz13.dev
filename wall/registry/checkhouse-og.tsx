@@ -9,7 +9,7 @@ export default function Component() {
     <WallCard
       type="screenshot"
       name="checkhouse og"
-      className="aspect-[2] col-span-2 dark"
+      className="aspect-[2] sm:col-span-2 dark"
       containerClassName="md:p-8 p-4 bg-muted"
     >
       <div className="rounded-xl bg-background border-x relative overflow-clip border-t drop-shadow-2xl h-full aspect-1200/628">

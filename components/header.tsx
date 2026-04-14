@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 export default function Header() {
 
   return (
-    <div className="flex w-full h-fit items-center justify-between">
+    <div className="flex md:flex-row flex-col w-full h-fit gap-4 md:items-center justify-between">
       <div className="flex items-center gap-3">
         <div className="flex flex-col">
           <div className="flex flex-row items-center gap-2">
