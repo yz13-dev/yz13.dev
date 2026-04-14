@@ -5,11 +5,11 @@ import { ComponentPropsWithoutRef } from "react";
 
 type Props = ComponentPropsWithoutRef<"svg">;
 
-export function LogoIcon({ className, ...props }: Props) {
+export function LogoIcon({ width = "40", height = "40", className, ...props }: Props) {
   return (
     <svg
       className={className}
-      width="40" height="40" viewBox="0 0 61 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+      width={width} height={height} viewBox="0 0 61 40" fill="none" xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path d="M4.01316 4H0V36H4.01316L4.01307 40H8.02632V36H4.01316V4H8.02632V0H4.01316V4Z" fill="var(--foreground)" />

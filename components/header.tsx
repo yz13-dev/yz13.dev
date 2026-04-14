@@ -1,12 +1,10 @@
-import { BriefcaseIcon, HomeIcon } from "lucide-react";
-import Link from "next/link";
+import Actions from "./actions";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Button } from "./ui/button";
 
 export default function Header() {
 
   return (
-    <header className="flex w-full h-fit items-center justify-between">
+    <div className="flex w-full h-fit items-center justify-between">
       <div className="flex items-center gap-3">
         <div className="flex flex-col">
           <div className="flex flex-row items-center gap-2">
@@ -27,16 +25,7 @@ export default function Header() {
           </span>
         </div>
       </div>
-      <nav className="flex items-center gap-2">
-        <Button variant="outline" nativeButton={false} render={<Link href="/" />}>
-          <HomeIcon />
-          <span className="md:inline hidden">Главная</span>
-        </Button>
-        <Button variant="outline" nativeButton={false} render={<Link href="/works" />}>
-          <BriefcaseIcon />
-          <span className="md:inline hidden">Работы</span>
-        </Button>
-      </nav>
-    </header>
+      <Actions />
+    </div>
   )
 }

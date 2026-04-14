@@ -167,4 +167,64 @@ body {
   html {
     @apply font-sans;
   }
+
+  .pattern-noise {
+    --pattern-size: 512px;
+    background-image: url("/layout/noise-black.png");
+    background-size: var(--pattern-size) var(--pattern-size);
+  }
+
+  .pattern-lines {
+    --pattern: color-mix(in oklab, var(--color-foreground)5%, transparent);
+    --pattern-size: 10px;
+    background-image: repeating-linear-gradient(315deg, var(--pattern)0, var(--pattern)1px, transparent 0, transparent 50%);
+    background-size: var(--pattern-size) var(--pattern-size);
+    background-attachment: fixed;
+  }
+
+  .pattern-dots {
+    --pattern: color-mix(in oklab, var(--color-foreground)25%, transparent);
+    --pattern-size: 20px;
+    background-image: radial-gradient(var(--pattern) 1px, transparent 1px);
+    background-size: var(--pattern-size) var(--pattern-size);
+  }
+
+  .pattern-grid {
+    --pattern: color-mix(in oklab, var(--color-foreground)10%, transparent);
+    --pattern-size: 20px;
+    --pattern-position-x: center;
+    --pattern-position-y: bottom;
+    background-position: var(--pattern-position-x) var(--pattern-position-y);
+    background-image: linear-gradient(to right, var(--pattern) 1px, transparent 1px), linear-gradient(to bottom, var(--pattern) 1px, transparent 1px);
+    background-size: var(--pattern-size) var(--pattern-size);
+  }
+
+  .pattern-paper {
+    background-image: url('/layout/light-bkg-noise.webp');
+    background-size: 256px;
+    mix-blend-mode: normal;
+    opacity: 0.05;
+    background-repeat: repeat;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .pattern-paper {
+      background-image: url('/layout/dark-bkg-noise.webp');
+      background-size: 256px;
+      mix-blend-mode: normal;
+      opacity: 0.03;
+      background-repeat: repeat;
+    }
+  }
+
+  .dark {
+    .pattern-paper {
+      background-image: url('/layout/dark-bkg-noise.webp');
+      background-size: 256px;
+      mix-blend-mode: normal;
+      opacity: 0.03;
+      background-repeat: repeat;
+    }
+  }
+
 }

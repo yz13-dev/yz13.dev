@@ -3,12 +3,10 @@ import { Suspense } from "react";
 import { ThemeSwitcher } from "./kibo-ui/theme-switcher";
 import { LogoFull } from "./logo-svg";
 import StatusBadge, { StatusBadgeSkeleton } from "./status-badge";
-import { Separator } from "./ui/separator";
 
 export default function Footer({ className = "" }: { className?: string }) {
   return (
-    <footer className={cn("max-w-2xl space-y-8 md:p-12 p-4", className)}>
-      <Separator />
+    <footer className={cn("container mx-auto space-y-8 md:p-12 p-4", className)}>
       <div className="flex items-center justify-between mx-auto w-full">
         <span className="text-sm text-muted-foreground">
           YZ13 - фуллстек разработчик / 2026
