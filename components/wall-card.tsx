@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { ArrowUpRightIcon, DotIcon } from "lucide-react";
 import Link from "next/link";
+import { CSSProperties } from "react";
 import { GridCell } from "./grid";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
@@ -18,8 +19,9 @@ type WallCardProps = {
 export default function WallCard({ label, className = "", containerClassName = "", type, name, link, children, fill = false }: WallCardProps) {
 
   return (
-    <GridCell className={cn("size-full bg-card overflow-clip", className)}>
-      <div className="size-full group flex flex-col">
+    <GridCell className={cn("size-full group relative bg-card overflow-clip", className)}>
+      {link && <Link href={link} target="_blank" className="absolute z-10 top-10 w-full h-[calc(100%-40px)] left-0" />}
+      <div className="size-full flex flex-col">
         <GridCell
           className={cn(
             "w-full h-10 bg-background transition-all pl-4 pr-2 flex overflow-hidden items-center justify-between gap-2",
@@ -33,17 +35,19 @@ export default function WallCard({ label, className = "", containerClassName = "
           </div>
           {
             link &&
-            <Button variant="ghost" size="xs">
+            <Button variant="ghost" size="xs" nativeButton={false} render={<Link href={link} target="_blank" />}>
               <span>Открыть</span>
               <ArrowUpRightIcon />
             </Button>
           }
         </GridCell>
-        <div className={cn(
-          "w-full flex relative items-end overflow-hidden justify-center md:px-8 md:pt-8 px-4 pt-4",
-          fill ? "group-hover:h-[calc(100%-40px)] h-full transition-all" : "h-[calc(100%-40px)]",
-          containerClassName
-        )}
+        <div
+          style={{ "--pattern-size": "48px" } as CSSProperties}
+          className={cn(
+            "w-full flex relative items-end overflow-hidden justify-center md:px-8 md:pt-8 px-4 pt-4",
+            fill ? "group-hover:h-[calc(100%-40px)] h-full transition-all" : "h-[calc(100%-40px)]",
+            containerClassName
+          )}
         >
           {label &&
             <Badge

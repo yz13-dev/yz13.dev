@@ -18,6 +18,7 @@ export default function Component() {
       name={page.data.title}
       className="aspect-square"
       containerClassName="md:p-8 p-4"
+      link="/work/reservia-admin"
     >
       <div className="size-full justify-end  flex flex-col gap-3">
         <div className="flex flex-col gap-1">

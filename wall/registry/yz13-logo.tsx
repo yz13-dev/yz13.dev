@@ -11,7 +11,7 @@ export default function Component() {
       name="yz13 logo"
       fill
       className="aspect-square"
-      containerClassName="bg-muted pt-0!"
+      containerClassName="bg-muted pt-0! pattern-grid"
       label="YZ13 лого"
     >
       <div className="size-full flex items-center justify-center">

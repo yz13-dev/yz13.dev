@@ -11,7 +11,7 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 const mono = localFont({
   src: "./fonts/jetbrains-mono.ttf",
   variable: "--font-mono",

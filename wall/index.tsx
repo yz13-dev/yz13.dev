@@ -15,13 +15,13 @@ export function getWall() {
   return [
     Checkhouse,
     CheckhouseOg,
-    YZ13Logo,
     CheckhouseLogo,
-    ReserviaClient,
-    ReserviaClientBlog,
     ReserviaAdmin,
     ReserviaAdminBlog,
     ReserviaPartner,
-    ReserviaPartnerBlog
+    ReserviaPartnerBlog,
+    ReserviaClient,
+    ReserviaClientBlog,
+    YZ13Logo,
   ]
 }

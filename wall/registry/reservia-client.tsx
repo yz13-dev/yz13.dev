@@ -12,7 +12,7 @@ export default function Component() {
       className="aspect-square dark"
       containerClassName="bg-muted"
     >
-      <div className="rounded-t-xl bg-background relative overflow-clip drop-shadow-2xl border-x border-t size-full">
+      <div className="rounded-t-xl bg-background relative overflow-clip drop-shadow-2xl border-x border-t size-full group-hover:scale-105 transition-transform">
         <Image src="/wall/reservia-client/client-step-1.png" className="object-cover object-top" fill alt="reservia client" />
       </div>
     </WallCard>

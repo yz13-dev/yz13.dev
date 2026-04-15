@@ -1,6 +1,5 @@
 import CopyButton from "@/components/copy-button";
 import { ThemeSwitcher } from "@/components/kibo-ui/theme-switcher";
-import { LogoIcon } from "@/components/logo-svg";
 import { Button } from "@/components/ui/button";
 import { getURL } from "@/lib/domain";
 import { source } from "@/lib/source";
@@ -40,14 +39,14 @@ export default async function Page({ params }: PageProps) {
   const MDX = docData?.body;
 
   return (
-    <>
-      <main className="w-full max-w-2xl space-y-6 md:p-12 p-4 mx-auto">
+    <div className="relative">
+      <div className="size-full -z-50 absolute inset-0 pattern-paper" />
+      <main className="w-full max-w-4xl space-y-6 md:p-12 p-4 mx-auto">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Button variant="secondary" nativeButton={false} render={<Link href="/works" />}>
+            <Button variant="secondary" nativeButton={false} render={<Link href="/" />}>
               <ArrowLeftIcon />
             </Button>
-            <LogoIcon className="h-9" />
           </div>
           <div className="flex items-center gap-2">
             <ThemeSwitcher />
@@ -94,6 +93,6 @@ export default async function Page({ params }: PageProps) {
         }
       </main>
       {/*<Footer className="mx-auto" />*/}
-    </>
+    </div>
   )
 }

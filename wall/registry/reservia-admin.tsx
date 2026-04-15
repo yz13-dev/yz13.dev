@@ -12,7 +12,7 @@ export default function Component() {
       className="aspect-[2] sm:col-span-2 dark"
       containerClassName="bg-muted"
     >
-      <div className="rounded-t-xl bg-background border-x relative overflow-clip border-t drop-shadow-2xl size-full">
+      <div className="rounded-t-xl bg-background border-x relative overflow-clip border-t drop-shadow-2xl size-full group-hover:scale-105 transition-transform">
         <Image src="/wall/reservia-admin/map-creating.png" className="object-cover object-top" fill alt="reservia admin" />
       </div>
     </WallCard>
