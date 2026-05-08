@@ -21,7 +21,7 @@ export default function Actions() {
       </ButtonGroup>
       {
         telegram &&
-        <Button variant="outline" size="lg" nativeButton={false} render={<Link href={telegram} target="_blank" rel="noopener" />}>
+        <Button variant="default" size="lg" nativeButton={false} render={<Link href={telegram} target="_blank" rel="noopener" />}>
           <SendIcon />
           <span>Написать</span>
         </Button>

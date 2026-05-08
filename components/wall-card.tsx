@@ -19,7 +19,7 @@ type WallCardProps = {
 export default function WallCard({ label, className = "", containerClassName = "", type, name, link, children, fill = false }: WallCardProps) {
 
   return (
-    <GridCell className={cn("size-full group relative bg-card overflow-clip", className)}>
+    <GridCell className={cn("size-full group relative bg-background overflow-clip", className)}>
       {link && <Link href={link} target="_blank" className="absolute z-10 top-10 w-full h-[calc(100%-40px)] left-0" />}
       <div className="size-full flex flex-col">
         <GridCell
@@ -41,25 +41,29 @@ export default function WallCard({ label, className = "", containerClassName = "
             </Button>
           }
         </GridCell>
-        <div
-          style={{ "--pattern-size": "48px" } as CSSProperties}
-          className={cn(
-            "w-full flex relative items-end overflow-hidden justify-center md:px-8 md:pt-8 px-4 pt-4",
-            fill ? "group-hover:h-[calc(100%-40px)] h-full transition-all" : "h-[calc(100%-40px)]",
-            containerClassName
-          )}
-        >
-          {label &&
-            <Badge
-              className={cn(
-                "absolute bottom-3 left-3 text-base h-fit border-none px-3 transition-colors backdrop-blur-[2px]",
-                fill ? "group-hover:bg-foreground/50 group-hover:text-background bg-transparent text-foreground" : ""
-              )}
-            >
-              {label}
-            </Badge>
-          }
-          {children}
+        <div className={cn(
+          "w-full p-2",
+          fill ? "group-hover:h-[calc(100%-40px)] h-full transition-all" : "h-[calc(100%-40px)]",
+        )}>
+          <div
+            style={{ "--pattern-size": "48px" } as CSSProperties}
+            className={cn(
+              "size-full rounded-xl flex relative items-end overflow-hidden justify-center md:px-8 md:pt-8 px-4 pt-4",
+              containerClassName
+            )}
+          >
+            {label &&
+              <Badge
+                className={cn(
+                  "absolute bottom-3 left-3 text-base h-fit border-none px-3 transition-colors backdrop-blur-[2px]",
+                  fill ? "group-hover:bg-foreground/50 group-hover:text-background bg-transparent text-foreground" : ""
+                )}
+              >
+                {label}
+              </Badge>
+            }
+            {children}
+          </div>
         </div>
       </div>
     </GridCell>

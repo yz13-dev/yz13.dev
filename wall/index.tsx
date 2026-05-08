@@ -1,6 +1,8 @@
 import Checkhouse from "./registry/checkhouse"
 import CheckhouseLogo from "./registry/checkhouse-logo"
 import CheckhouseOg from "./registry/checkhouse-og"
+import HostkitJS from "./registry/hostkitjs"
+import HostkitJSLogo from "./registry/hostkitjs-logo"
 import ReserviaAdmin from "./registry/reservia-admin"
 import ReserviaAdminBlog from "./registry/reservia-admin-blog"
 import ReserviaClient from "./registry/reservia-client"
@@ -13,7 +15,9 @@ import YZ13Logo from "./registry/yz13-logo"
 export function getWall() {
 
   return [
+    HostkitJS,
     Checkhouse,
+    HostkitJSLogo,
     CheckhouseOg,
     CheckhouseLogo,
     ReserviaAdmin,
