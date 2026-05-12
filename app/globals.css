@@ -194,7 +194,7 @@ body {
     --pattern: color-mix(in oklab, var(--color-foreground)10%, transparent);
     --pattern-size: 20px;
     --pattern-position-x: center;
-    --pattern-position-y: bottom;
+    --pattern-position-y: center;
     background-position: var(--pattern-position-x) var(--pattern-position-y);
     background-image: linear-gradient(to right, var(--pattern) 1px, transparent 1px), linear-gradient(to bottom, var(--pattern) 1px, transparent 1px);
     background-size: var(--pattern-size) var(--pattern-size);
