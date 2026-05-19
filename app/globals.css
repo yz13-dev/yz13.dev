@@ -169,6 +169,11 @@ body {
     @apply font-sans;
   }
 
+  .content-container {
+    @apply max-w-[1600px];
+  }
+
+
   .pattern-noise {
     --pattern-size: 512px;
     background-image: url("/layout/noise-black.png");

@@ -7,7 +7,7 @@ import StatusBadge, { StatusBadgeSkeleton } from "./status-badge";
 
 export default function Footer({ className = "" }: { className?: string }) {
   return (
-    <footer className={cn("container md:px-12 px-4 mx-auto", className)}>
+    <footer className={cn("content-container md:px-12 px-4 mx-auto", className)}>
       <GridCell>
         <div className="space-y-8 md:p-12 p-4 bg-background">
           <div className="flex items-center justify-between mx-auto w-full">
