@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
 
 const buttonGroupVariants = cva(
-  "flex w-fit items-stretch *:focus-visible:relative *:focus-visible:z-10 has-[>[data-slot=button-group]]:gap-2 has-[select[aria-hidden=true]:last-child]:[&>[data-slot=select-trigger]:last-of-type]:rounded-r-full [&>[data-slot=select-trigger]:not([class*='w-'])]:w-fit [&>input]:flex-1 *:gradient-border-none gradient-border gradient-border-to-tl gradient-border-from-input gradient-border-via-card gradient-border-to-primary/20 rounded-full p-px",
+  "flex w-fit items-stretch *:focus-visible:relative *:focus-visible:z-10 has-[>[data-slot=button-group]]:gap-2 has-[select[aria-hidden=true]:last-child]:[&>[data-slot=select-trigger]:last-of-type]:rounded-r-full [&>[data-slot=select-trigger]:not([class*='w-'])]:w-fit [&>input]:flex-1 *:gradient-border-none gradient-border gradient-border-to-tl gradient-border-from-border gradient-border-via-border/50 gradient-border-to-border rounded-full p-px",
   {
     variants: {
       orientation: {
@@ -85,3 +85,4 @@ export {
   ButtonGroupText,
   buttonGroupVariants
 }
+

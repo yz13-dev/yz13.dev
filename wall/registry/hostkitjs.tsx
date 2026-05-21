@@ -9,7 +9,7 @@ export default function Component() {
     <WallCard
       type="project"
       name="hostkitjs"
-      className="aspect-[2] sm:col-span-2"
+      className="sm:aspect-[2] aspect-4/3 sm:col-span-2"
       containerClassName="bg-muted"
       link="https://hostkitjs.ru"
     >

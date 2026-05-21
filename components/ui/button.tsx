@@ -8,9 +8,9 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-linear-to-tl from-primary to-primary/90 text-primary-foreground hover:bg-primary/80 gradient-border gradient-border-to-tl gradient-border-from-primary gradient-border-via-foreground/80 gradient-border-to-foreground/60",
+        default: "bg-linear-to-tl from-primary to-primary/80 text-primary-foreground border-none [a]:hover:bg-primary/80 gradient-border-1 gradient-border-to-tl gradient-border-from-primary/30 gradient-border-via-foreground/20 gradient-border-to-primary/20",
         outline:
-          "bg-linear-to-tl from-card to-card/80 hover:bg-input/50 hover:text-foreground aria-expanded:text-foreground gradient-border gradient-border-to-tl gradient-border-from-input gradient-border-via-card gradient-border-to-primary/20",
+          "bg-linear-to-tl from-card to-card/80 hover:bg-input/50 hover:text-foreground aria-expanded:text-foreground gradient-border gradient-border-to-tl gradient-border-from-border gradient-border-via-border/50 gradient-border-to-border",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost:

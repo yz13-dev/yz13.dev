@@ -7,22 +7,37 @@ import { isProduction } from "@/utils/env";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
-import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
-const mono = localFont({
-  src: "./fonts/jetbrains-mono.ttf",
-  variable: "--font-mono",
+const sans = localFont({
+  src: [
+    { path: "./fonts/google-sans-regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/google-sans-500.woff2", weight: "500", style: "normal" },
+  ],
+  variable: "--font-sans",
   display: "swap",
+  preload: true,
+  fallback: ["system-ui", "Inter", "sans-serif"],
+});
+
+const mono = localFont({
+  src: [
+    { path: "./fonts/jetbrains-mono-regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/jetbrains-mono-500.woff2", weight: "500", style: "normal" },
+  ],
+  variable: "--font-mono",
+  display: "optional",
   preload: false,
   fallback: ["mono"],
 });
 const serif = localFont({
-  src: "./fonts/playfair-serif.ttf",
+  src: [
+    { path: "./fonts/playfair-regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/playfair-500.woff2", weight: "500", style: "normal" },
+  ],
   variable: "--font-serif",
-  display: "swap",
+  display: "optional",
   preload: false,
   fallback: ["serif"],
 });
@@ -101,10 +116,15 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      suppressHydrationWarning className={cn("font-sans", inter.variable)}
+      suppressHydrationWarning
     >
       <body
-        className={cn("antialiased", inter.variable, mono.variable, serif.variable)}
+        className={cn(
+          "antialiased",
+          sans.variable,
+          mono.variable,
+          serif.variable
+        )}
       >
         <ThemeProvider
           attribute="class"
