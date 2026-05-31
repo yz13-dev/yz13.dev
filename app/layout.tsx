@@ -8,6 +8,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
 
 const sans = localFont({
@@ -126,17 +127,19 @@ export default function RootLayout({
           serif.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem={true}
-          enableColorScheme={true}
-        >
-          <TooltipProvider>
-            <Toaster position="bottom-center" />
-            {children}
-          </TooltipProvider>
-        </ThemeProvider>
+        <NuqsAdapter>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem={true}
+            enableColorScheme={true}
+          >
+            <TooltipProvider>
+              <Toaster position="bottom-center" />
+              {children}
+            </TooltipProvider>
+          </ThemeProvider>
+        </NuqsAdapter>
       </body>
       {
         // Google Analytics

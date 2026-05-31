@@ -1,6 +1,12 @@
 import Home from "./components/home";
 
-export default async function Page() {
+type PageProps = {
+  searchParams: Promise<{
+    year?: string;
+  }>;
+}
+export default async function Page({ searchParams }: PageProps) {
+  const { year } = await searchParams;
 
-  return <Home />
+  return <Home year={year} />
 }

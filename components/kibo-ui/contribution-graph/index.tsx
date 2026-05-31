@@ -3,26 +3,28 @@
 import { cn } from "@/lib/utils";
 import type { Day as WeekDay } from "date-fns";
 import {
-    differenceInCalendarDays,
-    eachDayOfInterval,
-    formatISO,
-    getDay,
-    getMonth,
-    getYear,
-    nextDay,
-    parseISO,
-    subWeeks,
+  differenceInCalendarDays,
+  eachDayOfInterval,
+  format,
+  formatISO,
+  getDay,
+  getMonth,
+  getYear,
+  isFuture,
+  nextDay,
+  parseISO,
+  subWeeks
 } from "date-fns";
 import {
-    createContext,
-    type CSSProperties,
-    Fragment,
-    type HTMLAttributes,
-    type ReactNode,
-    useContext,
-    useLayoutEffect,
-    useMemo,
-    useRef,
+  createContext,
+  type CSSProperties,
+  Fragment,
+  type HTMLAttributes,
+  type ReactNode,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef
 } from "react";
 
 export type Activity = {
@@ -119,8 +121,10 @@ const fillHoles = (activities: Activity[]): Activity[] => {
     activities.map((a) => [a.date, a])
   );
 
+  const today = format(new Date(), "yyyy-MM-dd")
+
   const firstActivity = sortedActivities[0] as Activity;
-  const lastActivity = sortedActivities.at(-1);
+  const lastActivity = sortedActivities.find(activity => activity.date === today) || sortedActivities.at(-1);
 
   if (!lastActivity) {
     return [];
@@ -131,6 +135,7 @@ const fillHoles = (activities: Activity[]): Activity[] => {
     end: parseISO(lastActivity.date),
   }).map((day) => {
     const date = formatISO(day, { representation: "date" });
+
 
     if (calendar.has(date)) {
       return calendar.get(date) as Activity;
@@ -153,6 +158,9 @@ const groupByWeeks = (
   }
 
   const normalizedActivities = fillHoles(activities);
+
+  if (normalizedActivities.length === 0) return [];
+
   const firstActivity = normalizedActivities[0] as Activity;
   const firstDate = parseISO(firstActivity.date);
   const firstCalendarDate =
@@ -370,7 +378,7 @@ export const ContributionGraphCalendar = ({
   children,
   ...props
 }: ContributionGraphCalendarProps) => {
-  const { weeks, width, height, blockSize, blockMargin, labels } =
+  const { weeks, width, height, blockSize, blockMargin, labels, weekStart } =
     useContributionGraph();
 
   const monthLabels = useMemo(
@@ -380,7 +388,7 @@ export const ContributionGraphCalendar = ({
 
   const ref = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
 
     const div = ref.current;
 
@@ -388,7 +396,7 @@ export const ContributionGraphCalendar = ({
 
     div.scrollLeft = div.scrollWidth
 
-  }, [])
+  }, [width])
   return (
     <div
       ref={ref}
@@ -404,15 +412,19 @@ export const ContributionGraphCalendar = ({
         <title>Contribution Graph</title>
         {!hideMonthLabels && (
           <g className="fill-current">
-            {monthLabels.map(({ label, weekIndex }) => (
-              <text
-                dominantBaseline="hanging"
-                key={weekIndex}
-                x={(blockSize + blockMargin) * weekIndex}
-              >
-                {label}
-              </text>
-            ))}
+            {monthLabels.map(({ label, weekIndex }) => {
+
+              return (
+                <text
+                  dominantBaseline="hanging"
+                  key={weekIndex}
+                  x={(blockSize + blockMargin) * weekIndex}
+                >
+                  {label}
+                </text>
+              )
+            }
+            )}
           </g>
         )}
         {weeks.map((week, weekIndex) =>
@@ -420,6 +432,9 @@ export const ContributionGraphCalendar = ({
             if (!activity) {
               return null;
             }
+
+            const isInFuture = isFuture(new Date(activity.date))
+            if (isInFuture) return null;
 
             return (
               <Fragment key={`${weekIndex}-${dayIndex}`}>

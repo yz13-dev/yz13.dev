@@ -11,7 +11,10 @@ import { MailIcon } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
 
-export default async function Home() {
+type HomeProps = {
+  year?: string;
+};
+export default async function Home({ year }: HomeProps) {
 
   const wall = getWall()
 
@@ -26,7 +29,7 @@ export default async function Home() {
                 <main className="size-full flex flex-col gap-8">
                   <Header />
 
-                  <div className="text-balance text-muted-foreground text-2xl leading-9 tracking-tight">
+                  <div className="text-balance text-muted-foreground text-2xl max-w-2xl leading-9 tracking-tight">
                     <p>
                       В данный момент разрабатываю <Link aria-label="Checkhouse" target="_blank" className="px-1 bg-secondary rounded-md h-5 text-foreground underline" rel="noopener" href="https://checkhouse.app">
                         <CheckhouseLogoIcon className="size-5 inline-block mb-0.5 mr-1" />
@@ -44,7 +47,7 @@ export default async function Home() {
                   {/* contributions */}
                   <div className="py-8">
                     <Suspense fallback={<GithubGraphSkeleton />}>
-                      <GithubContributions />
+                      <GithubContributions year={year} />
                     </Suspense>
                   </div>
                 </main>

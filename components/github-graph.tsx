@@ -9,8 +9,33 @@ import {
   ContributionGraphTotalCount,
 } from "@/components/kibo-ui/contribution-graph";
 import { isFuture } from "date-fns";
+import { CheckIcon } from "lucide-react";
+import { useQueryState } from "nuqs";
+import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+
+export function GithubGraphYearSwitcher({ years }: { years: Record<string, number> }) {
+
+  const [selectedYear, setYear] = useQueryState("year", { shallow: false });
+
+  return Object
+    .entries(years)
+    .sort((a, b) => {
+      const keyA = parseInt(a[0])
+      const keyB = parseInt(b[0])
+      return keyB - keyA
+    })
+    .map(([year]) => (
+      <Button variant="ghost" className="justify-start text-sm" key={year} onClick={() => {
+        if (selectedYear === year) setYear(null)
+        else setYear(year)
+      }}>
+        {year}
+        {selectedYear === year && <CheckIcon className="ml-auto" />}
+      </Button>
+    ))
+}
 
 export default function GithubGraph({ data = [] }: { data?: Activity[] }) {
   return (
