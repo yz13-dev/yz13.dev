@@ -1,10 +1,8 @@
-import CopyButton from "@/components/copy-button";
-import { ThemeSwitcher } from "@/components/kibo-ui/theme-switcher";
+import Header from "@/components/header";
 import { Button } from "@/components/ui/button";
-import { getURL } from "@/lib/domain";
 import { source } from "@/lib/source";
 import { mdxComponents } from "@/mdx-components";
-import { ArrowLeftIcon, GlobeIcon, LinkIcon } from "lucide-react";
+import { GlobeIcon } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -13,14 +11,15 @@ import { notFound } from "next/navigation";
 type PageProps = {
   params: Promise<{
     id: string;
+    year: string;
   }>;
 };
 
 export default async function Page({ params }: PageProps) {
 
-  const { id: slug } = await params;
+  const { id: slug, year } = await params;
 
-  const page = source.getPage(["work", slug]);
+  const page = source.getPage(["work", year, slug]);
 
   if (!page) return notFound();
 
@@ -40,21 +39,10 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <div className="relative">
-      <div className="size-full -z-50 absolute inset-0 pattern-paper" />
-      <main className="w-full max-w-4xl space-y-6 md:p-12 p-4 mx-auto">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Button variant="secondary" nativeButton={false} render={<Link href="/" />}>
-              <ArrowLeftIcon />
-            </Button>
-          </div>
-          <div className="flex items-center gap-2">
-            <ThemeSwitcher />
-            <CopyButton variant="secondary" text={getURL(page.url)}>
-              <LinkIcon />
-            </CopyButton>
-          </div>
-        </div>
+      <div className="max-w-2xl mx-auto w-full md:pt-12 pt-4 md:px-12 px-4">
+        <Header />
+      </div>
+      <main className="w-full max-w-2xl space-y-6 md:p-12 p-4 mx-auto">
         <div>
           <div className="py-12 *:block space-y-2">
             <span className="text-4xl font-serif font-medium">{page.data.title}</span>
@@ -92,7 +80,6 @@ export default async function Page({ params }: PageProps) {
           <MDX components={mdxComponents} />
         }
       </main>
-      {/*<Footer className="mx-auto" />*/}
     </div>
   )
 }

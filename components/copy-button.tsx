@@ -36,6 +36,7 @@ export default function CopyButton({ text, onClick, variant = "default", size = 
       disabled={disabled || copied}
       {...props}
     >
+      {/*{children}*/}
       {copied ? <CheckIcon /> : children}
     </Button>
   )
