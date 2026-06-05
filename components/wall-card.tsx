@@ -25,7 +25,7 @@ export default function WallCard({ label, className = "", containerClassName = "
       <div className="size-full flex flex-col">
         <div
           className={cn(
-            "w-full h-fit z-10 transition-all px-6 lg:py-6 py-3 flex overflow-hidden items-center justify-between gap-2",
+            "w-full h-fit z-10 transition-all px-6 py-3 flex overflow-hidden items-center justify-between gap-2",
           )}
         >
           <div className="flex items-center gap-0">
