@@ -1,4 +1,4 @@
-import WallCard from "@/components/wall-card";
+import WallCard, { WallCardImage } from "@/components/wall-card";
 import Image from "next/image";
 
 
@@ -9,14 +9,14 @@ export default function Component() {
     <WallCard
       type="screenshot"
       name="checkhouse og"
-      className="sm:aspect-[2] aspect-4/3 sm:col-span-2 dark"
-      containerClassName="md:p-8 p-4 bg-muted"
+      className="dark"
+      containerClassName="md:pb-8 pb-4"
     >
-      <div className="rounded-xl will-change-transform bg-background relative overflow-clip drop-shadow-2xl sm:h-full h-fit sm:w-fit w-full aspect-1200/628 group-hover:scale-105 transition-transform ">
+      <WallCardImage className="rounded-lg">
         <Image
           src="https://checkhouse.app/og?title=Checkhouse&description=Monitor%20your%20services%2C%20detect%20outages%20instantly%2C%20and%20share%20a%20public%20status%20page."
-          className="object-fill object-top " fill alt="checkhouse Open Graph" />
-      </div>
+          fill alt="checkhouse Open Graph" />
+      </WallCardImage>
     </WallCard>
   )
 }

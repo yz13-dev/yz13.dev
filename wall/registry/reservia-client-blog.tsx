@@ -8,7 +8,7 @@ import { ru } from "date-fns/locale";
 
 export default function Component() {
 
-  const page = source.getPage(["work", "reservia-client"]);
+  const page = source.getPage(["work", "2025", "reservia-client"]);
 
   if (!page) return null;
 
@@ -16,13 +16,13 @@ export default function Component() {
     <WallCard
       type="blog"
       name={page.data.title}
-      className="aspect-square"
-      containerClassName="md:p-8 p-4"
-      link="/work/reservia-client"
+      className="aspect-square pattern-dots"
+      containerClassName="md:p-8 p-4 bg-linear-to-tr from-muted to-transparent"
+      link={page.path.replace(".mdx", "")}
     >
       <div className="size-full justify-end  flex flex-col gap-3">
         <div className="flex flex-col gap-1">
-          <span className="text-3xl font-serif">{page?.data.title}</span>
+          <span className="text-4xl font-serif">{page?.data.title}</span>
           <time dateTime={page?.data.date} className="text-sm text-muted-foreground">
             {format(new Date(page.data.date), "dd MMMM yyyy", { locale: ru })}
           </time>

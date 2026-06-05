@@ -10,8 +10,8 @@ export default function Component() {
       type="logo"
       name="yz13 logo"
       fill
-      className="aspect-square"
-      containerClassName="bg-muted pt-0! pattern-grid"
+      className="aspect-square pattern-grid"
+      containerClassName="pt-0!"
       label="YZ13 лого"
     >
       <div className="size-full flex items-center justify-center">

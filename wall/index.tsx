@@ -29,3 +29,20 @@ export function getWall() {
     YZ13Logo,
   ]
 }
+
+export function getWallColumns(
+  wall: ReturnType<typeof getWall>,
+  columns: number
+) {
+  const result: ReturnType<typeof getWall>[] = Array.from(
+    { length: columns },
+    () => []
+  )
+
+  for (let i = 0; i < wall.length; i++) {
+    const columnIndex = i % columns
+    result[columnIndex].push(wall[i])
+  }
+
+  return result
+}

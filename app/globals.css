@@ -173,6 +173,33 @@ body {
     @apply max-w-[1600px];
   }
 
+  .stack {
+    flex: none;
+    place-content: flex-start center;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+    height: min-content;
+    padding: 0;
+    display: flex;
+    position: relative;
+    overflow: visible;
+  }
+
+  .stack-column {
+    flex-flow: column;
+    flex: 1 0 0;
+    place-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    height: min-content;
+    padding: 0;
+    display: flex;
+    position: relative;
+    overflow: visible;
+  }
+
 
   .pattern-noise {
     --pattern-size: 512px;

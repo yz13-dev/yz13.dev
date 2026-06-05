@@ -10,8 +10,8 @@ export default function Component() {
       type="logo"
       name="checkhouse logo"
       fill
-      className="aspect-square"
-      containerClassName="bg-muted pt-0! pattern-grid"
+      className="aspect-square pattern-grid"
+      containerClassName="pt-0!"
       label="Checkhouse лого"
     >
       <div className="size-full flex items-center justify-center">

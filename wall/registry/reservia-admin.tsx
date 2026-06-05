@@ -1,4 +1,4 @@
-import WallCard from "@/components/wall-card";
+import WallCard, { WallCardImage } from "@/components/wall-card";
 import Image from "next/image";
 
 
@@ -9,12 +9,11 @@ export default function Component() {
     <WallCard
       type="screenshot"
       name="reservia admin"
-      className="sm:aspect-[2] aspect-4/3 sm:col-span-2 dark"
-      containerClassName="bg-muted"
+      className="dark"
     >
-      <div className="rounded-t-xl bg-background border-x relative overflow-clip border-t drop-shadow-2xl size-full group-hover:scale-105 transition-transform will-change-transform">
-        <Image src="/wall/reservia-admin/map-creating.png" className="object-cover object-top" fill alt="reservia admin" />
-      </div>
+      <WallCardImage>
+        <Image src="/wall/reservia-admin/map-creating.png" fill alt="reservia admin" />
+      </WallCardImage>
     </WallCard>
   )
 }

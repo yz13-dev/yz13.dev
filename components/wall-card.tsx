@@ -1,10 +1,8 @@
 import { cn } from "@/lib/utils";
-import { ArrowUpRightIcon, DotIcon } from "lucide-react";
+import { DotIcon, ExternalLinkIcon } from "lucide-react";
 import Link from "next/link";
 import { CSSProperties } from "react";
-import { GridCell } from "./grid";
 import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
 
 type WallCardProps = {
   type: string
@@ -19,43 +17,45 @@ type WallCardProps = {
 export default function WallCard({ label, className = "", containerClassName = "", type, name, link, children, fill = false }: WallCardProps) {
 
   return (
-    <GridCell className={cn("size-full group relative bg-background overflow-clip", className)}>
-      {link && <Link href={link} target="_blank" className="absolute z-10 top-10 w-full h-[calc(100%-40px)] left-0" />}
+    <div
+      style={{ "--pattern-size": "48px" } as CSSProperties}
+      className={cn("size-full group relative bg-muted overflow-clip rounded-xl", className)}
+    >
+      {link && <Link href={link} target="_blank" className="absolute z-10 inset-0 size-full" />}
       <div className="size-full flex flex-col">
-        <GridCell
+        <div
           className={cn(
-            "w-full h-10 bg-background transition-all pl-4 pr-2 flex overflow-hidden items-center justify-between gap-2",
-            fill ? "group-hover:h-10 h-0" : "h-10"
+            "w-full h-fit z-10 transition-all px-6 lg:py-6 py-3 flex overflow-hidden items-center justify-between gap-2",
           )}
         >
           <div className="flex items-center gap-0">
-            <Link href="" className="text-sm hover:underline text-muted-foreground">{type}</Link>
+            <span className="text-sm text-muted-foreground">{type}</span>
             <DotIcon className="size-4 text-muted-foreground" />
-            <span className="text-sm text-muted-foreground">{name}</span>
+            {
+              link
+                ? <Link href={link} target="_blank" className="text-sm hover:underline text-muted-foreground inline-flex items-center gap-1 [&_svg]:size-3">
+                  {name}
+                  <ExternalLinkIcon />
+                </Link>
+                : <span className="text-sm text-muted-foreground">{name}</span>
+            }
           </div>
-          {
-            link &&
-            <Button variant="ghost" size="xs" nativeButton={false} render={<Link href={link} target="_blank" />}>
-              <span>Открыть</span>
-              <ArrowUpRightIcon />
-            </Button>
-          }
-        </GridCell>
+        </div>
         <div className={cn(
-          "w-full p-2",
-          fill ? "group-hover:h-[calc(100%-40px)] h-full transition-all" : "h-[calc(100%-40px)]",
+          "size-full",
         )}>
           <div
-            style={{ "--pattern-size": "48px" } as CSSProperties}
             className={cn(
-              "size-full rounded-xl flex relative items-end overflow-hidden justify-center md:px-8 md:pt-8 px-4 pt-4",
+              "size-full flex relative items-end overflow-hidden justify-end md:px-6 px-4",
               containerClassName
             )}
           >
             {label &&
               <Badge
                 className={cn(
-                  "absolute bottom-3 left-3 text-base h-fit border-none px-3 transition-colors backdrop-blur-[2px]",
+                  "absolute h-fit border-none px-3 transition-colors backdrop-blur-[2px]",
+                  "lg:bottom-3 lg:left-3 bottom-2 left-2",
+                  "lg:text-base md:text-sm text-xs",
                   fill ? "group-hover:bg-foreground/50 group-hover:text-background bg-transparent text-foreground" : ""
                 )}
               >
@@ -66,6 +66,20 @@ export default function WallCard({ label, className = "", containerClassName = "
           </div>
         </div>
       </div>
-    </GridCell>
+    </div>
+  )
+}
+
+export function WallCardImage({ children, className }: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      className={cn(
+        "relative rounded-t-lg bg-background border block overflow-clip drop-shadow-2xl h-fit w-full transition-transform",
+        "[&_img]:object-contain [&_img]:static! [&_img]:block! [&_img]:object-top",
+        className
+      )}
+    >
+      {children}
+    </div>
   )
 }

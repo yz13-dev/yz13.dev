@@ -22,35 +22,29 @@ export default async function Works() {
   const works = sources
     .filter(source => source.slugs.includes("work"));
   const groupedWorks = groupByYear(works, source => source.slugs);
-  return (
-    <div className="max-w-2xl mx-auto w-full md:p-12 p-4">
-      {
-        Object
-          .entries(groupedWorks)
-          .sort(([aYear], [bYear]) => bYear.localeCompare(aYear))
-          .map(([year, works]) => {
-            return works.map((work, index) => {
-              const date = new Date(work.data.date)
-              return (
-                <Link
-                  href={work.path.replace(".mdx", "")}
-                  key={work.absolutePath}
-                  className="flex text-sm group items-center gap-2 justify-between h-9 py-2"
-                >
-                  <div className="flex items-center gap-2">
-                    <span className={cn("text-muted-foreground", index === 0 ? "opacity-100" : "opacity-0")}>{year}</span>
-                    <span className="text-foreground group-hover:bg-secondary transition-all rounded-xl py-0.5 px-1.5">{work.data.title}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-muted-foreground capitalize">
-                      {format(date, "LLLL", { locale: ru })}
-                    </span>
-                  </div>
-                </Link>
-              )
-            })
-          })
-      }
-    </div>
-  )
+  return Object
+    .entries(groupedWorks)
+    .sort(([aYear], [bYear]) => bYear.localeCompare(aYear))
+    .map(([year, works]) => {
+      return works.map((work, index) => {
+        const date = new Date(work.data.date)
+        return (
+          <Link
+            href={work.path.replace(".mdx", "")}
+            key={work.absolutePath}
+            className="flex text-sm group items-center gap-2 justify-between h-9 py-2"
+          >
+            <div className="flex items-center gap-2">
+              <span className={cn("text-muted-foreground", index === 0 ? "opacity-100" : "opacity-0")}>{year}</span>
+              <span className="text-foreground group-hover:bg-secondary transition-all rounded-xl py-0.5 px-1.5">{work.data.title}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-muted-foreground capitalize">
+                {format(date, "LLLL", { locale: ru })}
+              </span>
+            </div>
+          </Link>
+        )
+      })
+    })
 }
