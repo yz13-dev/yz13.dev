@@ -1,5 +1,6 @@
 import Header from "@/components/header";
 import { getWall, getWallColumns } from "@/wall";
+import Projects from "./components/projects";
 import Works from "./components/works";
 
 type PageProps = {
@@ -24,7 +25,8 @@ export default async function Page({ params, searchParams }: PageProps) {
       <div className="max-w-2xl mx-auto w-full md:pt-12 pt-4 md:px-12 px-4">
         <Header />
       </div>
-      <div className="max-w-2xl min-h-[60dvh] mx-auto w-full md:p-12 p-4">
+      <div className="max-w-2xl min-h-[60dvh] mx-auto w-full md:p-12 p-4 space-y-8">
+        <Projects />
         <Works />
       </div>
       <div className="container mx-auto w-full md:pb-12 pb-4 md:px-12 px-4">

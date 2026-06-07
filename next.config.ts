@@ -23,6 +23,22 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "hostkitjs.ru",
+      },
+      {
+        protocol: "https",
+        hostname: "yz13.site",
+      },
+      {
+        protocol: "https",
+        hostname: "ui.yz13.dev",
+      },
+      {
+        protocol: "https",
+        hostname: "yz13.dev",
+      },
+      {
+        protocol: "https",
         hostname: "checkhouse.app",
       },
     ],
