@@ -1,5 +1,5 @@
 import Header from "@/components/header";
-import { getWall, getWallColumns } from "@/wall";
+import { getWall } from "@/wall";
 import Projects from "./components/projects";
 import Works from "./components/works";
 
@@ -18,7 +18,7 @@ export default async function Page({ params, searchParams }: PageProps) {
   const { id: slug, year } = await params;
   const { year: searchYear } = await searchParams;
 
-  const wall = getWallColumns(getWall(), 3)
+  const wall = getWall()
 
   return (
     <>
@@ -30,21 +30,13 @@ export default async function Page({ params, searchParams }: PageProps) {
         <Works />
       </div>
       <div className="container mx-auto w-full md:pb-12 pb-4 md:px-12 px-4">
-        <div className="stack md:flex-row flex-col">
+        <div className="columns-1 sm:columns-2 lg:columns-3 2xl:columns-4 space-y-4">
           {
-            wall.map((column, index) => {
+            wall.map((item, index) => {
+              const Component = item
               return (
-                <div key={index} className="stack-column">
-                  {
-                    column.map((item, itemIndex) => {
-                      const Component = item
-                      return (
-                        <div key={`${index}-${itemIndex}`} className="w-full min-h-fit flex-[1,0,0] place-content-center">
-                          <Component />
-                        </div>
-                      )
-                    })
-                  }
+                <div key={index} className="w-full min-h-fit break-inside-avoid">
+                  <Component />
                 </div>
               )
             })
