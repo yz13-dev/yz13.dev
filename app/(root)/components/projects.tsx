@@ -64,31 +64,32 @@ export default function Projects() {
             .entries(groupedProjects)
             .sort(([aYear], [bYear]) => bYear.localeCompare(aYear))
             .map(([year, projects]) => {
-              return projects.map((project, index) => {
-                return (
-                  <li
-                    key={project.id}
-                    className="group text-sm relative"
-                  >
-                    <Link href={project.link} className="absolute inset-0 size-full" />
-                    <div className="flex text-sm items-center gap-2 justify-between h-9 py-2">
-                      <div className="flex items-center gap-2">
-                        <span className={cn("text-muted-foreground", index === 0 ? "opacity-100" : "opacity-0")}>{year}</span>
-                        <div className="flex items-center gap-0.5">
-                          <div className="size-4 rouned-lg bg-muted">
-                            <Image src={project.image} width={16} height={16} alt={project.name} />
+              return projects
+                .map((project, index) => {
+                  return (
+                    <li
+                      key={project.id}
+                      className="group text-sm relative"
+                    >
+                      <Link href={project.link} className="absolute inset-0 size-full" />
+                      <div className="flex text-sm items-center gap-2 justify-between h-9 py-2">
+                        <div className="flex items-center px-1.5 gap-2">
+                          <span className={cn("text-muted-foreground", index === 0 ? "opacity-100" : "opacity-0")}>{year}</span>
+                          <div className="flex items-center gap-0.5">
+                            <div className="size-4 rouned-lg bg-muted">
+                              <Image src={project.image} width={16} height={16} alt={project.name} />
+                            </div>
+                            <span className="text-foreground group-hover:bg-secondary transition-all rounded-xl py-0.5 px-1.5">{project.name}</span>
                           </div>
-                          <span className="text-foreground group-hover:bg-secondary transition-all rounded-xl py-0.5 px-1.5">{project.name}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-muted-foreground group-hover:text-foreground">{project.domain}</span>
+                          <ExternalLinkIcon className="size-3 text-muted-foreground group-hover:text-foreground" />
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-muted-foreground group-hover:text-foreground">{project.domain}</span>
-                        <ExternalLinkIcon className="size-3 text-muted-foreground group-hover:text-foreground" />
-                      </div>
-                    </div>
-                  </li>
-                )
-              })
+                    </li>
+                  )
+                })
             })
         }
       </ul>

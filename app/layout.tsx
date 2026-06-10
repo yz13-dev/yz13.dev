@@ -11,10 +11,24 @@ import localFont from "next/font/local";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
 
+// const sans = localFont({
+//   src: [
+//     { path: "./fonts/google-sans-regular.woff2", weight: "400", style: "normal" },
+//     { path: "./fonts/google-sans-500.woff2", weight: "500", style: "normal" },
+//   ],
+//   variable: "--font-sans",
+//   display: "swap",
+//   preload: true,
+//   fallback: ["system-ui", "Inter", "sans-serif"],
+// });
 const sans = localFont({
   src: [
-    { path: "./fonts/google-sans-regular.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/google-sans-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/golos-text-regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/golos-text-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/golos-text-600.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/golos-text-700.woff2", weight: "700", style: "normal" },
+    // { path: "./fonts/google-sans-regular.woff2", weight: "400", style: "normal" },
+    // { path: "./fonts/google-sans-500.woff2", weight: "500", style: "normal" },
   ],
   variable: "--font-sans",
   display: "swap",
