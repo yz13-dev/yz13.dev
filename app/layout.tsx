@@ -46,10 +46,24 @@ const mono = localFont({
   preload: false,
   fallback: ["mono"],
 });
+// const serif = localFont({
+//   src: [
+//     { path: "./fonts/playfair-regular.woff2", weight: "400", style: "normal" },
+//     { path: "./fonts/playfair-500.woff2", weight: "500", style: "normal" },
+//   ],
+//   variable: "--font-serif",
+//   display: "optional",
+//   preload: false,
+//   fallback: ["serif"],
+// });
 const serif = localFont({
   src: [
-    { path: "./fonts/playfair-regular.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/playfair-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/playfair-display-regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/playfair-display-italic.woff2", weight: "400", style: "italic" },
+    { path: "./fonts/playfair-display-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/playfair-display-500-italic.woff2", weight: "500", style: "italic" },
+    { path: "./fonts/playfair-display-600.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/playfair-display-600-italic.woff2", weight: "600", style: "italic" },
   ],
   variable: "--font-serif",
   display: "optional",
