@@ -14,7 +14,7 @@ export default function Component() {
     >
       {/*<div className="rounded-t-xl bg-background relative overflow-clip drop-shadow-2xl border-x border-t size-full transition-transform">*/}
       <WallCardImage>
-        <Image src="/wall/reservia-client/client-step-1.png" fill alt="reservia client" />
+        <Image src="/wall/reservia-client/client-step-1.png" className="aspect-298/667.83" fill alt="reservia client" />
       </WallCardImage>
       {/*</div>*/}
     </WallCard>

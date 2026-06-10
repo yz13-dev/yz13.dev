@@ -14,6 +14,7 @@ export default function Component() {
     >
       <WallCardImage className="rounded-lg">
         <Image
+          className="aspect-298/155.95"
           src="https://checkhouse.app/og?title=Checkhouse&description=Monitor%20your%20services%2C%20detect%20outages%20instantly%2C%20and%20share%20a%20public%20status%20page."
           fill alt="checkhouse Open Graph" />
       </WallCardImage>

@@ -12,7 +12,7 @@ export default function Component() {
       link="https://hostkitjs.ru"
     >
       <WallCardImage>
-        <Image src="/wall/hostkitjs/hostkitjs.png" fill alt="hostkitjs.ru" />
+        <Image src="/wall/hostkitjs/hostkitjs.png" className="aspect-298/191.53" fill alt="hostkitjs.ru" />
       </WallCardImage>
     </WallCard>
   )

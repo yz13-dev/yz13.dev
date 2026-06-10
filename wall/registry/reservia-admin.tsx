@@ -12,7 +12,7 @@ export default function Component() {
       className="dark"
     >
       <WallCardImage>
-        <Image src="/wall/reservia-admin/map-creating.png" fill alt="reservia admin" />
+        <Image src="/wall/reservia-admin/map-creating.png" className="aspect-298/211.86" fill alt="reservia admin" />
       </WallCardImage>
     </WallCard>
   )

@@ -12,7 +12,7 @@ export default function Component() {
       className="dark"
     >
       <WallCardImage>
-        <Image src="/wall/checkhouse/home-page.png" fill alt="checkhouse.app/home" />
+        <Image src="/wall/checkhouse/home-page.png" className="aspect-298/167.63" fill alt="checkhouse.app/home" />
       </WallCardImage>
     </WallCard>
   )
