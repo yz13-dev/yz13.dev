@@ -1,5 +1,5 @@
+import CardImage from "@/components/card-image";
 import WallCard, { WallCardImage } from "@/components/wall-card";
-import Image from "next/image";
 
 
 
@@ -12,7 +12,7 @@ export default function Component() {
       link="https://hostkitjs.ru"
     >
       <WallCardImage>
-        <Image src="/wall/hostkitjs/hostkitjs.png" className="aspect-298/191.53" fill alt="hostkitjs.ru" />
+        <CardImage src="/wall/hostkitjs/hostkitjs.png" className="aspect-298/191" fill alt="hostkitjs.ru" />
       </WallCardImage>
     </WallCard>
   )

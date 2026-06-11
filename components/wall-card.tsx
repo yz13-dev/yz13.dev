@@ -74,8 +74,8 @@ export function WallCardImage({ children, className }: React.HTMLAttributes<HTML
   return (
     <div
       className={cn(
-        "relative rounded-t-lg bg-background border block overflow-clip drop-shadow-2xl h-fit w-full transition-transform",
-        "[&_img]:object-contain [&_img]:static! [&_img]:block! [&_img]:object-top",
+        "relative rounded-t-lg bg-background border block overflow-clip drop-shadow-2xl w-full transition-transform",
+        "[&_img]:object-contain [&_img]:static [&_img]:block [&_img]:object-top",
         className
       )}
     >

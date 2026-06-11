@@ -1,5 +1,5 @@
+import CardImage from "@/components/card-image";
 import WallCard, { WallCardImage } from "@/components/wall-card";
-import Image from "next/image";
 
 
 
@@ -12,7 +12,7 @@ export default function Component() {
       className="dark"
     >
       <WallCardImage>
-        <Image src="/wall/reservia-partner/dashboard.png" className="aspect-298/210.3" fill alt="reservia admin" />
+        <CardImage src="/wall/reservia-partner/dashboard.png" className="aspect-298/210" fill alt="reservia admin" />
       </WallCardImage>
     </WallCard>
   )

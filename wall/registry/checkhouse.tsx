@@ -1,5 +1,5 @@
+import CardImage from "@/components/card-image";
 import WallCard, { WallCardImage } from "@/components/wall-card";
-import Image from "next/image";
 
 
 
@@ -12,7 +12,7 @@ export default function Component() {
       link="https://checkhouse.app"
     >
       <WallCardImage>
-        <Image src="/wall/checkhouse/checkhouse.png" className="aspect-298/186.25" fill alt="checkhouse.app" />
+        <CardImage src="/wall/checkhouse/checkhouse.png" className="aspect-298/186" fill alt="checkhouse.app" />
       </WallCardImage>
     </WallCard>
   )
