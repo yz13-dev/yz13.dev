@@ -1,6 +1,7 @@
 import Checkhouse from "./registry/checkhouse"
 import CheckhouseHomePage from "./registry/checkhouse-home"
 import CheckhouseLogo from "./registry/checkhouse-logo"
+import CheckhouseNewHomePage from "./registry/checkhouse-new-home"
 import CheckhouseOg from "./registry/checkhouse-og"
 import HostkitJS from "./registry/hostkitjs"
 import HostkitJSLogo from "./registry/hostkitjs-logo"
@@ -16,6 +17,7 @@ import YZ13Logo from "./registry/yz13-logo"
 export function getWall() {
 
   return [
+    CheckhouseNewHomePage,
     CheckhouseHomePage,
     HostkitJS,
     Checkhouse,
