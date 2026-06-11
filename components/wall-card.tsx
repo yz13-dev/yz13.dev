@@ -4,6 +4,23 @@ import Link from "next/link";
 import { CSSProperties } from "react";
 import { Badge } from "./ui/badge";
 
+function getLabelForType(type: string): string {
+  switch (type) {
+    case "screenshot":
+      return "Скриншот";
+    case "logo":
+      return "Лого";
+    case "project":
+      return "Проект";
+    case "work":
+      return "Работа";
+    case "blog":
+      return "Блог";
+    default:
+      return type.charAt(0).toUpperCase() + type.slice(1);
+  }
+}
+
 type WallCardProps = {
   type: string
   name: string
@@ -18,18 +35,21 @@ export default function WallCard({ label, className = "", containerClassName = "
 
   return (
     <div
-      style={{ "--pattern-size": "48px" } as CSSProperties}
-      className={cn("size-full group relative bg-muted overflow-clip rounded-xl", className)}
+      style={{ "--pattern-size": "50px" } as CSSProperties}
+      className={cn(
+        "size-full group relative bg-muted overflow-clip rounded-2xl",
+        className
+      )}
     >
       {link && <Link href={link} target="_blank" className="absolute z-10 inset-0 size-full" />}
       <div className="size-full flex flex-col">
         <div
           className={cn(
-            "w-full h-11 shrink-0 z-10 transition-all px-6 py-3 flex overflow-hidden items-center justify-between gap-2",
+            "w-full absolute top-0 left-0 h-11 shrink-0 z-10 transition-all px-6 py-3 flex overflow-hidden items-center justify-center gap-2",
           )}
         >
           <div className="flex items-center gap-0">
-            <span className="text-sm text-muted-foreground">{type}</span>
+            <span className="text-sm text-muted-foreground">{getLabelForType(type)}</span>
             <DotIcon className="size-4 text-muted-foreground" />
             {
               link
@@ -42,11 +62,11 @@ export default function WallCard({ label, className = "", containerClassName = "
           </div>
         </div>
         <div className={cn(
-          "size-full",
+          "size-full pt-11",
         )}>
           <div
             className={cn(
-              "size-full flex relative items-end overflow-hidden justify-end md:px-6 px-4",
+              "size-full flex relative items-end justify-end md:px-6 px-4",
               containerClassName
             )}
           >
@@ -74,7 +94,7 @@ export function WallCardImage({ children, className }: React.HTMLAttributes<HTML
   return (
     <div
       className={cn(
-        "relative rounded-t-lg bg-background border block overflow-clip drop-shadow-2xl w-full transition-transform",
+        "relative rounded-t-lg bg-background border block overflow-clip drop-shadow-2xl drop-shadow-foreground/50 w-full transition-transform",
         "[&_img]:object-contain [&_img]:static [&_img]:block [&_img]:object-top",
         className
       )}

@@ -29,7 +29,7 @@ export default async function Page({ params, searchParams }: PageProps) {
         <Projects />
         <Works />
       </div>
-      <div className="container mx-auto w-full md:pb-12 pb-4 md:px-12 px-4">
+      <div className="container mx-auto w-full md:p-12 p-4">
         <div className="columns-1 sm:columns-2 lg:columns-3 2xl:columns-4 space-y-4">
           {
             wall.map((item, index) => {
