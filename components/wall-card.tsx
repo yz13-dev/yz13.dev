@@ -8,6 +8,8 @@ function getLabelForType(type: string): string {
   switch (type) {
     case "screenshot":
       return "Скриншот";
+    case "video":
+      return "Видео";
     case "logo":
       return "Лого";
     case "project":

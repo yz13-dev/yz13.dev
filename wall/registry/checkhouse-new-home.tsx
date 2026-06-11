@@ -6,7 +6,7 @@ export default function Component() {
 
   return (
     <WallCard
-      type="screenshot"
+      type="video"
       name="checkhouse"
     >
       <WallCardImage>
