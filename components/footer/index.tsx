@@ -61,19 +61,19 @@ export default function Footer() {
           </AnimatePresence>
         }
       </div>
-      <div className="w-fit h-12 p-2 mx-auto rounded-xl bg-background/90 backdrop-blur-md border">
-        <div className="flex items-center gap-2 h-8">
-          <Avatar className="size-8 rounded-lg">
+      <div className="w-fit h-12 p-2 mx-auto rounded-xl bg-background/90 backdrop-blur-md ring-1 ring-border">
+        <div className="h-8 flex items-center gap-2 [&_button]:rounded-sm">
+          <Avatar className="h-full aspect-square after:rounded-sm rounded-sm">
             <AvatarImage
               className="rounded-sm"
               src="https://github.com/yz13-dev.png"
             />
-            <AvatarFallback>YZ</AvatarFallback>
+            <AvatarFallback className="rounded-sm">YZ</AvatarFallback>
           </Avatar>
           <Tooltip>
             <TooltipTrigger
               render={
-                <CalComEmbed variant="ghost" size="icon-lg" className="p-1">
+                <CalComEmbed variant="ghost" size="icon-lg" className="size-8 p-1">
                   <CalendarIcon className="size-4.5" />
                 </CalComEmbed>
               }
