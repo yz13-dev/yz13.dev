@@ -5,7 +5,7 @@ import { ExternalLinkIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const projects = [
+export const projects = [
   {
     id: "ui-yz13",
     name: "YZ13/UI",

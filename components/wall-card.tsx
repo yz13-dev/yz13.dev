@@ -64,7 +64,8 @@ export default function WallCard({ label, className = "", containerClassName = "
           </div>
         </div>
         <div className={cn(
-          "size-full pt-11",
+          "size-full",
+          fill ? "pt-0" : "pt-11"
         )}>
           <div
             className={cn(

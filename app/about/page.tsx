@@ -21,9 +21,9 @@ export default async function Page({ searchParams }: PageProps) {
       <div className="max-w-2xl mx-auto w-full md:pt-12 pt-4 md:px-12 px-4">
         <Header />
       </div>
-      <div className="text-balance text-muted-foreground text-lg md:pt-12 pt-4 md:px-12 px-4 max-w-2xl mx-auto w-full leading-6 tracking-tight">
+      <div className="text-balance text-muted-foreground text-lg md:pt-12 pt-4 md:px-12 px-4 max-w-2xl mx-auto w-full leading-7 tracking-tight">
         <p>
-          Начал изучать как создавать сайты в далеком 2022-м году, таким образом у меня появилось новое хобби.
+          Начал изучать как создавать сайты в далеком 2022-м году, так и появилось хобби. Было много чего непонятно, но интересно.
         </p>
         <br />
         <p>

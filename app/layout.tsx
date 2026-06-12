@@ -1,3 +1,4 @@
+import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { metaTitle, slogan } from "@/const/app";
@@ -163,8 +164,9 @@ export default function RootLayout({
             enableColorScheme={true}
           >
             <TooltipProvider>
-              <Toaster position="bottom-center" />
+              <Toaster position="bottom-center" offset={{ bottom: 100 }} />
               {children}
+              <Footer />
             </TooltipProvider>
           </ThemeProvider>
         </NuqsAdapter>

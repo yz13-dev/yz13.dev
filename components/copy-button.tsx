@@ -4,6 +4,14 @@ import { useState } from "react"
 import { toast } from "sonner"
 import { Button } from "./ui/button"
 
+export const copy = async (text: string) => {
+  try {
+    await navigator.clipboard.writeText(text)
+    toast.success("Скопировано!")
+  } catch (error) {
+    console.log("copy/error", error)
+  }
+}
 
 type CopyButtonProps = {
   text: string
@@ -12,10 +20,9 @@ export default function CopyButton({ text, onClick, variant = "default", size = 
 
   const [copied, setCopied] = useState<boolean>(false)
 
-  const copy = async (text: string) => {
+  const copyAction = async (text: string) => {
     try {
-      await navigator.clipboard.writeText(text)
-      toast.success("Скопировано!")
+      copy(text)
       setCopied(true)
 
       setTimeout(() => setCopied(false), 1000)
@@ -27,7 +34,7 @@ export default function CopyButton({ text, onClick, variant = "default", size = 
   return (
     <Button
       onClick={e => {
-        copy(text)
+        copyAction(text)
         onClick?.(e)
       }}
       className={className}
