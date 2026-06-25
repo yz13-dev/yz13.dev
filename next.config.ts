@@ -31,7 +31,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "ui.yz13.dev",
+        hostname: "*.yz13.dev",
       },
       {
         protocol: "https",
