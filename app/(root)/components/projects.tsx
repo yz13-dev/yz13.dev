@@ -91,8 +91,8 @@ export default function Projects() {
                           <span className={cn("text-muted-foreground", index === 0 ? "opacity-100" : "opacity-0")}>{year}</span>
                           <div className="flex items-center gap-0.5">
                             <div className="size-4 rouned-lg bg-muted">
-                              <Avatar className="size-4">
-                                <AvatarImage src={project.image} alt={project.name} />
+                              <Avatar className="size-4 rounded-xs after:rounded-xs">
+                                <AvatarImage className="rounded-xs" src={project.image} alt={project.name} />
                                 <AvatarFallback className="capitalize"><GlobeIcon /></AvatarFallback>
                               </Avatar>
                             </div>

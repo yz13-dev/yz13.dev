@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { metaTitle, slogan } from "@/const/app";
 import { getDomain, getURL } from "@/lib/domain";
 import { cn } from "@/lib/utils";
+import QueryProvider from "@/providers/react-query";
 import { isProduction } from "@/utils/env";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
@@ -165,7 +166,9 @@ export default function RootLayout({
           >
             <TooltipProvider>
               <Toaster position="bottom-center" offset={{ bottom: 100 }} />
-              {children}
+              <QueryProvider>
+                {children}
+              </QueryProvider>
               <Footer />
             </TooltipProvider>
           </ThemeProvider>

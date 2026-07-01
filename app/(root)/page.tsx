@@ -1,5 +1,8 @@
 import Header from "@/components/header";
+import ImcGrid from "@/components/imc-grid";
+import { ImcWithTextIcon } from "@/components/logo/imc";
 import { getWall } from "@/wall";
+import Link from "next/link";
 import Projects from "./components/projects";
 import Works from "./components/works";
 
@@ -43,6 +46,14 @@ export default async function Page({ params, searchParams }: PageProps) {
           }
         </div>
       </div>
+      <section className="container mx-auto w-full space-y-6 md:p-12 p-4">
+        <div className="">
+          <Link href="https://imc.yz13.dev" target="_blank">
+            <ImcWithTextIcon className="h-6 w-fit" />
+          </Link>
+        </div>
+        <ImcGrid />
+      </section>
     </>
   )
 }
