@@ -43,7 +43,7 @@ export default function ImcGrid() {
                     src={item.src}
                     className={cn(
                       "outline-4 outline-transparent group/-hover:outline-foreground/10 bg/-foreground/10",
-                      "group-hover:scale/-101 will-change-transform transition-all",
+                      "group-hover:scale/-101 will-change-transform transition-all rounded-sm",
                     )}
                     blurhash={blurhash}
                     style={{
