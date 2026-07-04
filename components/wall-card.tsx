@@ -2,6 +2,8 @@ import { cn } from "@/lib/utils";
 import { DotIcon, ExternalLinkIcon } from "lucide-react";
 import Link from "next/link";
 import { CSSProperties } from "react";
+import { VideoProvider } from "./imc/video";
+import { ImcIcon } from "./logo/imc";
 import { Badge } from "./ui/badge";
 
 function getLabelForType(type: string): string {
@@ -18,6 +20,8 @@ function getLabelForType(type: string): string {
       return "Работа";
     case "blog":
       return "Блог";
+    case "imc":
+      return "IMC";
     default:
       return type.charAt(0).toUpperCase() + type.slice(1);
   }
@@ -39,7 +43,7 @@ export default function WallCard({ label, className = "", containerClassName = "
     <div
       style={{ "--pattern-size": "50px" } as CSSProperties}
       className={cn(
-        "size-full group relative bg-muted overflow-clip rounded-2xl",
+        "size-full group relative bg-muted overflow-clip rounded-2xl break-inside-avoid",
         className
       )}
     >
@@ -51,7 +55,10 @@ export default function WallCard({ label, className = "", containerClassName = "
           )}
         >
           <div className="flex items-center gap-0">
-            <span className="text-sm text-muted-foreground">{getLabelForType(type)}</span>
+            <div className="flex items-center gap-2">
+              {type === "imc" && <ImcIcon className="w-3" />}
+              <span className="text-sm text-muted-foreground">{getLabelForType(type)}</span>
+            </div>
             <DotIcon className="size-4 text-muted-foreground" />
             {
               link
@@ -93,7 +100,7 @@ export default function WallCard({ label, className = "", containerClassName = "
   )
 }
 
-export function WallCardImage({ children, className }: React.HTMLAttributes<HTMLDivElement>) {
+export function WallCardImage({ children, className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(
@@ -102,8 +109,30 @@ export function WallCardImage({ children, className }: React.HTMLAttributes<HTML
         "[&_img]:object-contain [&_img]:static [&_img]:block [&_img]:object-top",
         className
       )}
+      {...props}
     >
       {children}
     </div>
+  )
+}
+
+type WallCardVideoProps = {
+  duration_ms?: number
+} & React.HTMLAttributes<HTMLDivElement>
+export function WallCardVideo({ children, className, duration_ms, ...props }: WallCardVideoProps) {
+  return (
+    <VideoProvider duration={duration_ms}>
+      <div
+        className={cn(
+          "relative rounded-t-lg bg-background border block overflow-clip w-full transition-all",
+          "drop-shadow-2xl group-hover:drop-shadow-foreground/50 drop-shadow-transparent duration-700 delay-150",
+          "[&_video]:object-contain [&_video]:static [&_video]:block [&_video]:object-top",
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </div>
+    </VideoProvider>
   )
 }

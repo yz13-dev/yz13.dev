@@ -4,7 +4,7 @@ import { source } from "@/lib/source";
 import { format } from "date-fns";
 import { ru } from "date-fns/locale";
 
-
+export const date = "2026-04-13"
 
 export default function Component() {
 

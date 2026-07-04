@@ -17,7 +17,7 @@ export default function ImcGrid() {
     queryFn: () => GetImcCollections().then(data => data)
   })
 
-  console.log("[IMC]", data)
+  // console.log("[IMC]", data)
 
   return (
     <CardGridWrapper>

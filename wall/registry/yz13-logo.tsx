@@ -1,7 +1,7 @@
 import { LogoIcon } from "@/components/logo-svg";
 import WallCard from "@/components/wall-card";
 
-
+export const date = "2026-04-10"
 
 export default function Component() {
 

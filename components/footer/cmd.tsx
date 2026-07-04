@@ -30,7 +30,7 @@ export default function Cmd() {
 
         const [search, slug] = getCommandValue(selected);
 
-        console.log(search, slug)
+        // console.log(search, slug)
         setValue(selected);
       }}
     >
