@@ -13,7 +13,7 @@ export default function Page() {
         <div className="columns-1 sm:columns-2 lg:columns-3 2xl:columns-4 space-y-4">
           {
             wall.map((item, index) => {
-              const Component = item
+              const Component = item.element
               return (
                 <div key={index} className="w-full min-h-fit break-inside-avoid">
                   <Component />
