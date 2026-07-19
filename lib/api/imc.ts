@@ -1,7 +1,8 @@
+import { Attachment } from "@/types/imc"
 
 const IS_DEV = process.env.NODE_ENV === "development"
 
-export async function GetImcCollections(): Promise<any[]> {
+export async function GetImcCollections(): Promise<Attachment[]> {
   try {
 
     const base = IS_DEV ? "https://localhost:8080" : "https://api.imc.yz13.dev"

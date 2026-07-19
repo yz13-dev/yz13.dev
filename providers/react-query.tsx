@@ -13,7 +13,7 @@ export default function QueryProvider({ children }: { children: React.ReactNode 
       client={queryClient}
     >
       {children}
-      <ReactQueryDevtools initialIsOpen={true} />
+      {process.env.NODE_ENV === "development" && <ReactQueryDevtools initialIsOpen={false} />}
     </QueryClientProvider>
   )
 }

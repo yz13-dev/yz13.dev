@@ -106,8 +106,6 @@ export default function WallWithIMC() {
     }
   })
 
-  // console.log("{ITEMS}", [...imcTypedItems, ...wallTypedItems])
-
   return [...imcTypedItems, ...wallTypedItems]
     .toSorted((a, b) => {
       const aDate = new Date(a.date)

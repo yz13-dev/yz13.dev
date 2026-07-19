@@ -30,7 +30,6 @@ export default function Footer() {
     } else {
       checkCalComEmbed()
         .then((open) => {
-          // console.log("IS-OPEN", open)
           setCalcomOpen(open)
         })
     }

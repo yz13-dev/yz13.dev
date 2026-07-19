@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
   enablePrerenderSourceMaps: false,
   cacheComponents: true,
   experimental: {
+    useTypeScriptCli: true,
     optimizeCss: true,
     serverSourceMaps: false,
   },

@@ -17,13 +17,6 @@ export type WallItem = {
 export function getWall(): WallItem[] {
 
   return [
-    // CheckhouseNewHomePage,
-    // CheckhouseHomePage,
-    // HostkitJS,
-    // Checkhouse,
-    // HostkitJSLogo,
-    // CheckhouseOg,
-    // CheckhouseLogo,
     {
       id: "HostkitJS",
       date: HostkitJSTimestamp,

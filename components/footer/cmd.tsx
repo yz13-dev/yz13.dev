@@ -5,15 +5,6 @@ import { source } from "@/lib/source";
 import Image from "next/image";
 import { useState } from "react";
 
-function getCommandValue(value: string): [string, string] {
-  try {
-    const [search, slug] = value.split(":");
-    return [search, slug];
-  } catch {
-    return [value, ""];
-  }
-}
-
 export default function Cmd() {
 
   const [value, setValue] = useState("");
@@ -28,9 +19,6 @@ export default function Cmd() {
       value={value}
       onValueChange={selected => {
 
-        const [search, slug] = getCommandValue(selected);
-
-        // console.log(search, slug)
         setValue(selected);
       }}
     >

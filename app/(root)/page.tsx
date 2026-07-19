@@ -1,5 +1,4 @@
 import Header from "@/components/header";
-import { getWall } from "@/wall";
 import Projects from "./components/projects";
 import WallWithIMC from "./components/wall-with-imc";
 import Works from "./components/works";
@@ -15,8 +14,6 @@ type PageProps = {
 };
 
 export default async function Page({ params, searchParams }: PageProps) {
-
-  const wall = getWall()
 
   return (
     <>
