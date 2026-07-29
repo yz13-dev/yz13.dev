@@ -85,7 +85,6 @@ export default function WallWithIMC() {
               data-slot="reference-attachment"
               src={refSrc}
               draggable={false}
-              unoptimized
               fill
               loading="lazy"
               placeholder={blurhash ? "blur" : "empty"}
