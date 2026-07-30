@@ -14,9 +14,8 @@ export const projects: Project[] = [
     name: "IMC",
     year: 2026,
     image: "https://imc.yz13.dev/favicon.ico",
-    stage: "in-dev",
-    domain: null, // "imc.yz13.dev",
-    link: null// "https://imc.yz13.dev",
+    domain: "imc.yz13.dev",
+    link: "https://imc.yz13.dev",
   },
   {
     id: "ui-yz13",
