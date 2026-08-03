@@ -1,7 +1,9 @@
 "use client"
 import { projects } from "@/app/(root)/components/projects";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from "@/components/ui/command";
-import { source } from "@/lib/source";
+import { GetBlogPosts } from "@/lib/api/blog";
+import { BlogPost } from "@/types/blog";
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -9,9 +11,11 @@ export default function Cmd() {
 
   const [value, setValue] = useState("");
 
-  const sources = source.getPages();
-  const works = sources
-    .filter(source => source.slugs.includes("work"));
+  const { data } = useQuery<BlogPost[]>({
+    queryKey: ["blog-posts"],
+    queryFn: GetBlogPosts,
+  })
+  const posts = data || [];
 
   return (
     <Command
@@ -44,11 +48,11 @@ export default function Cmd() {
         <CommandSeparator />
         <CommandGroup heading="Блог">
           {
-            works
-              .map(work => {
+            posts
+              .map(post => {
                 return (
-                  <CommandItem value={`blog:${work.data.id}`} key={`cmd/work/${work.absolutePath}`}>
-                    <span>{work.data.title}</span>
+                  <CommandItem value={`blog:${post.slug}`} key={`cmd/blog/${post.slug}`}>
+                    <span>{post.title}</span>
                   </CommandItem>
                 )
               })

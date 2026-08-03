@@ -168,8 +168,8 @@ export default function RootLayout({
               <Toaster position="bottom-center" offset={{ bottom: 100 }} />
               <QueryProvider>
                 {children}
+                <Footer />
               </QueryProvider>
-              <Footer />
             </TooltipProvider>
           </ThemeProvider>
         </NuqsAdapter>
