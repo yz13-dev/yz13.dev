@@ -58,6 +58,14 @@ export const projects: Project[] = [
     image: "https://yz13.dev/favicon.ico",
     domain: "yz13.dev",
     link: "https://yz13.dev",
+  },
+  {
+    id: "blog-yz13",
+    name: "Блог",
+    year: 2026,
+    image: "https://blog.yz13.dev/favicon.ico",
+    domain: "blog.yz13.dev",
+    link: "https://blog.yz13.dev",
   }
 ]
 
