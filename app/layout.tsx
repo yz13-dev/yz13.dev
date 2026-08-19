@@ -13,29 +13,17 @@ import localFont from "next/font/local";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
 
-// const sans = localFont({
-//   src: [
-//     { path: "./fonts/google-sans-regular.woff2", weight: "400", style: "normal" },
-//     { path: "./fonts/google-sans-500.woff2", weight: "500", style: "normal" },
-//   ],
-//   variable: "--font-sans",
-//   display: "swap",
-//   preload: true,
-//   fallback: ["system-ui", "Inter", "sans-serif"],
-// });
 const sans = localFont({
   src: [
-    { path: "./fonts/golos-text-regular.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/golos-text-500.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/golos-text-600.woff2", weight: "600", style: "normal" },
-    { path: "./fonts/golos-text-700.woff2", weight: "700", style: "normal" },
-    // { path: "./fonts/google-sans-regular.woff2", weight: "400", style: "normal" },
-    // { path: "./fonts/google-sans-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/onest-regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/onest-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/onest-600.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/onest-700.woff2", weight: "700", style: "normal" },
   ],
   variable: "--font-sans",
   display: "swap",
   preload: true,
-  fallback: ["system-ui", "Inter", "sans-serif"],
+  fallback: ["system-ui", "sans-serif"],
 });
 
 const mono = localFont({
@@ -48,24 +36,12 @@ const mono = localFont({
   preload: false,
   fallback: ["mono"],
 });
-// const serif = localFont({
-//   src: [
-//     { path: "./fonts/playfair-regular.woff2", weight: "400", style: "normal" },
-//     { path: "./fonts/playfair-500.woff2", weight: "500", style: "normal" },
-//   ],
-//   variable: "--font-serif",
-//   display: "optional",
-//   preload: false,
-//   fallback: ["serif"],
-// });
 const serif = localFont({
   src: [
-    { path: "./fonts/playfair-display-regular.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/playfair-display-italic.woff2", weight: "400", style: "italic" },
-    { path: "./fonts/playfair-display-500.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/playfair-display-500-italic.woff2", weight: "500", style: "italic" },
-    { path: "./fonts/playfair-display-600.woff2", weight: "600", style: "normal" },
-    { path: "./fonts/playfair-display-600-italic.woff2", weight: "600", style: "italic" },
+    { path: "./fonts/lora-regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/lora-italic.woff2", weight: "400", style: "italic" },
+    { path: "./fonts/lora-700.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/lora-700-italic.woff2", weight: "700", style: "italic" },
   ],
   variable: "--font-serif",
   display: "optional",

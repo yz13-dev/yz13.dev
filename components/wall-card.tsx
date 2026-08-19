@@ -43,7 +43,7 @@ export default function WallCard({ label, className = "", containerClassName = "
     <div
       style={{ "--pattern-size": "50px" } as CSSProperties}
       className={cn(
-        "size-full group relative bg-muted overflow-clip rounded-2xl break-inside-avoid",
+        "size-full group relative bg-muted overflow-clip rounded-lg break-inside-avoid",
         className
       )}
     >
@@ -57,16 +57,16 @@ export default function WallCard({ label, className = "", containerClassName = "
           <div className="flex items-center gap-0">
             <div className="flex items-center gap-2">
               {type === "imc" && <ImcIcon className="w-3" />}
-              <span className="text-sm text-muted-foreground">{getLabelForType(type)}</span>
+              <span className="text-sm text-secondary">{getLabelForType(type)}</span>
             </div>
-            <DotIcon className="size-4 text-muted-foreground" />
+            <DotIcon className="size-4 text-secondary" />
             {
               link
-                ? <Link href={link} target="_blank" className="text-sm hover:underline text-muted-foreground inline-flex items-center gap-1 [&_svg]:size-3">
+                ? <Link href={link} target="_blank" className="text-sm hover:underline text-secondary inline-flex items-center gap-1 [&_svg]:size-3">
                   {name}
                   <ExternalLinkIcon />
                 </Link>
-                : <span className="text-sm text-muted-foreground">{name}</span>
+                : <span className="text-sm text-secondary">{name}</span>
             }
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function WallCard({ label, className = "", containerClassName = "
                   "absolute h-fit border-none px-3 transition-colors backdrop-blur-[2px]",
                   "lg:bottom-3 lg:left-3 bottom-2 left-2",
                   "lg:text-base md:text-sm text-xs",
-                  fill ? "group-hover:bg-foreground/50 group-hover:text-background bg-transparent text-foreground" : ""
+                  fill ? "group-hover:bg-inverse/50 group-hover:text-inverse-foreground bg-transparent text-primary" : ""
                 )}
               >
                 {label}
@@ -104,8 +104,8 @@ export function WallCardImage({ children, className, ...props }: React.HTMLAttri
   return (
     <div
       className={cn(
-        "relative rounded-t-lg bg-background border block overflow-clip w-full transition-all",
-        "drop-shadow-2xl group-hover:drop-shadow-foreground/50 drop-shadow-transparent duration-700 delay-150",
+        "relative rounded-t-lg bg-surface border block overflow-clip w-full transition-all",
+        "opacity-95 group-hover:opacity-100 duration-300",
         "[&_img]:object-contain [&_img]:static [&_img]:block [&_img]:object-top",
         className
       )}
@@ -124,8 +124,8 @@ export function WallCardVideo({ children, className, duration_ms, ...props }: Wa
     <VideoProvider duration={duration_ms}>
       <div
         className={cn(
-          "relative rounded-t-lg bg-background border block overflow-clip w-full transition-all",
-          "drop-shadow-2xl group-hover:drop-shadow-foreground/50 drop-shadow-transparent duration-700 delay-150",
+          "relative rounded-t-lg bg-surface border block overflow-clip w-full transition-all",
+          "opacity-95 group-hover:opacity-100 duration-300",
           "[&_video]:object-contain [&_video]:static [&_video]:block [&_video]:object-top",
           className
         )}

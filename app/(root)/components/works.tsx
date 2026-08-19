@@ -21,7 +21,7 @@ export default function Works() {
   return (
     <section>
       <div className="flex items-center gap-2 py-3">
-        <span className="font-medium text-muted-foreground">Блог</span>
+        <span className="font-medium text-secondary">Блог</span>
         <Separator className="shrink" />
       </div>
       <ul>
@@ -45,11 +45,11 @@ export default function Works() {
                         className="flex text-sm group items-center gap-2 justify-between h-9 py-2"
                       >
                         <div className="flex items-center gap-2">
-                          <span className={cn("text-muted-foreground", index === 0 ? "opacity-100" : "opacity-0")}>{year}</span>
-                          <span className="text-foreground group-hover:bg-secondary transition-all rounded-xl py-0.5 px-1.5">{post.title}</span>
+                          <span className={cn("text-secondary", index === 0 ? "opacity-100" : "opacity-0")}>{year}</span>
+                          <span className="text-primary group-hover:bg-muted transition-all rounded-xl py-0.5 px-1.5">{post.title}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="text-muted-foreground capitalize">
+                          <span className="text-secondary capitalize">
                             {format(date, "dd MMMM", { locale: ru })}
                           </span>
                         </div>
