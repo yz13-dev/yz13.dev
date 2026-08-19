@@ -76,7 +76,7 @@ export default function Projects() {
   return (
     <section>
       <div className="flex items-center gap-2 py-3">
-        <span className="font-medium text-muted-foreground">Проекты</span>
+        <span className="font-medium text-secondary">Проекты</span>
         <Separator className="shrink" />
       </div>
       <ul>
@@ -95,7 +95,7 @@ export default function Projects() {
                       {project.link && <Link href={project.link} className="absolute inset-0 size-full" />}
                       <div className="flex text-sm items-center gap-2 justify-between h-9 py-2">
                         <div className="flex items-center px-1.5 gap-2">
-                          <span className={cn("text-muted-foreground", index === 0 ? "opacity-100" : "opacity-0")}>{year}</span>
+                          <span className={cn("text-secondary", index === 0 ? "opacity-100" : "opacity-0")}>{year}</span>
                           <div className="flex items-center gap-0.5">
                             <div className="size-4 rouned-lg bg-muted">
                               <Avatar className="size-4 rounded-xs after:rounded-xs">
@@ -103,19 +103,19 @@ export default function Projects() {
                                 <AvatarFallback className="capitalize"><GlobeIcon /></AvatarFallback>
                               </Avatar>
                             </div>
-                            <span className="text-foreground group-hover:bg-secondary transition-all rounded-xl py-0.5 px-1.5">{project.name}</span>
+                            <span className="text-primary group-hover:bg-muted transition-all rounded-xl py-0.5 px-1.5">{project.name}</span>
                           </div>
                         </div>
                         <div className="flex items-center gap-2">
                           {
                             project.stage &&
-                            <span className="text-muted-foreground group-hover:text-foreground">{stage[project.stage]}</span>
+                            <span className="text-secondary group-hover:text-primary">{stage[project.stage]}</span>
                           }
                           {
                             project.domain &&
                             <div className="flex items-center gap-2">
-                              <span className="text-muted-foreground group-hover:text-foreground">{project.domain}</span>
-                              <ExternalLinkIcon className="size-3 text-muted-foreground group-hover:text-foreground" />
+                              <span className="text-secondary group-hover:text-primary">{project.domain}</span>
+                              <ExternalLinkIcon className="size-3 text-secondary group-hover:text-primary" />
                             </div>
                           }
                         </div>

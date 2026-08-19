@@ -74,7 +74,7 @@ export default function Footer() {
           </AnimatePresence>
         }
       </div>
-      <div className="w-fit h-12 mx-auto rounded-xl bg-background/90 backdrop-blur-md ring-1 ring-border">
+      <div className="w-fit h-12 mx-auto rounded-xl bg-surface/90 backdrop-blur-md ring-1 ring-border">
         <div className="group w-full flex items-center *:pl-2 has-data-[slot=separator]:*:first:pr-2 *:data-[slot=separator]:p-0 *:last:p-2 *:py-2">
 
           <div className="w-full flex items-center">

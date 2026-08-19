@@ -10,15 +10,15 @@ export function CheckhouseLogoIcon({ className, ...props }: Props) {
       {...props}
     >
       <g clipPath="url(#clip0_1109_2517)">
-        <rect x="18" width="4" height="40" fill="var(--foreground)" />
-        <rect x="27" y="3" width="4" height="34" fill="var(--foreground)" />
-        <rect x="9" y="3" width="4" height="34" fill="var(--foreground)" />
-        <rect x="36" y="11" width="4" height="18" fill="var(--foreground)" />
-        <rect y="11" width="4" height="18" fill="var(--foreground)" />
+        <rect x="18" width="4" height="40" fill="var(--color-text-primary)" />
+        <rect x="27" y="3" width="4" height="34" fill="var(--color-text-primary)" />
+        <rect x="9" y="3" width="4" height="34" fill="var(--color-text-primary)" />
+        <rect x="36" y="11" width="4" height="18" fill="var(--color-text-primary)" />
+        <rect y="11" width="4" height="18" fill="var(--color-text-primary)" />
       </g>
       <defs>
         <clipPath id="clip0_1109_2517">
-          <rect width="40" height="40" fill="var(--foreground)" />
+          <rect width="40" height="40" fill="var(--color-text-primary)" />
         </clipPath>
       </defs>
     </svg>

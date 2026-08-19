@@ -96,14 +96,16 @@ export default function WallWithIMC() {
       </WallCard>
     }
   })
-  const wallTypedItems: TypedWallItem[] = (wall || []).map(item => {
-    const Component = item.element
-    return {
-      date: item.date,
-      type: "wall-item",
-      element: <Component key={item.id} />
-    }
-  })
+  const wallTypedItems: TypedWallItem[] = (wall || [])
+    .filter(item => !item.id.endsWith("Blog"))
+    .map(item => {
+      const Component = item.element
+      return {
+        date: item.date,
+        type: "wall-item",
+        element: <Component key={item.id} />
+      }
+    })
 
   return [...imcTypedItems, ...wallTypedItems]
     .toSorted((a, b) => {

@@ -339,10 +339,10 @@ export const ContributionGraphBlock = ({
     <rect
       className={cn(
         'data-[level="0"]:fill-muted',
-        'data-[level="1"]:fill-muted-foreground/20',
-        'data-[level="2"]:fill-muted-foreground/40',
-        'data-[level="3"]:fill-muted-foreground/60',
-        'data-[level="4"]:fill-muted-foreground/80',
+        'data-[level="1"]:fill-secondary/20',
+        'data-[level="2"]:fill-secondary/40',
+        'data-[level="3"]:fill-secondary/60',
+        'data-[level="4"]:fill-secondary/80',
         className
       )}
       data-count={activity.count}
@@ -482,7 +482,7 @@ export const ContributionGraphTotalCount = ({
   }
 
   return (
-    <div className={cn("text-muted-foreground", className)} {...props}>
+    <div className={cn("text-secondary", className)} {...props}>
       {labels.totalCount
         ? labels.totalCount
           .replace("{{count}}", String(totalCount))
@@ -511,7 +511,7 @@ export const ContributionGraphLegend = ({
       className={cn("ml-auto flex items-center gap-[3px]", className)}
       {...props}
     >
-      <span className="mr-1 text-muted-foreground">
+      <span className="mr-1 text-secondary">
         {labels.legend?.less || "Меньше"}
       </span>
       {new Array(maxLevel + 1).fill(undefined).map((_, level) =>
@@ -524,10 +524,10 @@ export const ContributionGraphLegend = ({
               className={cn(
                 "stroke-[1px] stroke-border",
                 'data-[level="0"]:fill-muted',
-                'data-[level="1"]:fill-muted-foreground/20',
-                'data-[level="2"]:fill-muted-foreground/40',
-                'data-[level="3"]:fill-muted-foreground/60',
-                'data-[level="4"]:fill-muted-foreground/80'
+                'data-[level="1"]:fill-secondary/20',
+                'data-[level="2"]:fill-secondary/40',
+                'data-[level="3"]:fill-secondary/60',
+                'data-[level="4"]:fill-secondary/80'
               )}
               data-level={level}
               height={blockSize}
@@ -538,7 +538,7 @@ export const ContributionGraphLegend = ({
           </svg>
         )
       )}
-      <span className="ml-1 text-muted-foreground">
+      <span className="ml-1 text-secondary">
         {labels.legend?.more || "More"}
       </span>
     </div>
