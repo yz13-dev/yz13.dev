@@ -1,5 +1,5 @@
 # -------- Base --------
-FROM oven/bun:1.3 AS base
+FROM oven/bun:1.4 AS base
 WORKDIR /app
 
 # -------- Dependencies --------
