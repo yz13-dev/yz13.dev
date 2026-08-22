@@ -8,7 +8,7 @@ export default function Media() {
         <span className="font-medium text-secondary">Медиа</span>
         <Separator className="shrink" />
       </div>
-      <div className="columns-1 sm:columns-2 xl:columns-3 space-y-4">
+      <div className="columns-1 sm:columns-2 space-y-4">
         <WallWithIMC />
       </div>
     </section>
