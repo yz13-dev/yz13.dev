@@ -6,12 +6,12 @@ import { getDomain, getURL } from "@/lib/domain";
 import { cn } from "@/lib/utils";
 import QueryProvider from "@/providers/react-query";
 import { isProduction } from "@/utils/env";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
+import Script from "next/script";
 
 const sans = localFont({
   src: [
@@ -28,8 +28,16 @@ const sans = localFont({
 
 const mono = localFont({
   src: [
-    { path: "./fonts/jetbrains-mono-regular.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/jetbrains-mono-500.woff2", weight: "500", style: "normal" },
+    {
+      path: "./fonts/jetbrains-mono-regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/jetbrains-mono-500.woff2",
+      weight: "500",
+      style: "normal",
+    },
   ],
   variable: "--font-mono",
   display: "optional",
@@ -79,12 +87,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ru_RU",
     siteName: "YZ13",
-    images: [
-      new URL(
-        "og.png",
-        getDomain(),
-      ),
-    ],
+    images: [new URL("og.png", getDomain())],
   },
   twitter: {
     title: metaTitle,
@@ -92,12 +95,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     creator: "@yz13_dev",
     site: "@yz13_dev",
-    images: [
-      new URL(
-        "og.png",
-        getDomain(),
-      ),
-    ],
+    images: [new URL("og.png", getDomain())],
   },
 };
 
@@ -121,16 +119,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="ru"
-      suppressHydrationWarning
-    >
+    <html lang="ru" suppressHydrationWarning>
       <body
         className={cn(
           "antialiased",
           sans.variable,
           mono.variable,
-          serif.variable
+          serif.variable,
         )}
       >
         <NuqsAdapter>
@@ -149,12 +144,15 @@ export default function RootLayout({
             </TooltipProvider>
           </ThemeProvider>
         </NuqsAdapter>
+        {isProduction() && (
+          <Script
+            src="https://c.analytics.yz13.dev/oa.js"
+            data-key="oa_pk_QhwoLoWbNZFdbb4h9IjVP__7790SZmcS"
+            data-collector="https://c.analytics.yz13.dev"
+            strategy="afterInteractive"
+          />
+        )}
       </body>
-      {
-        // Google Analytics
-        isProduction() &&
-        <GoogleAnalytics gaId="G-Y05QY597ZL" />
-      }
     </html>
   );
 }
