@@ -11,7 +11,6 @@ import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
-import Script from "next/script";
 
 const sans = localFont({
   src: [
@@ -120,6 +119,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" suppressHydrationWarning>
+      <head>
+        {isProduction() && (
+          <script
+            src="https://c.analytics.yz13.dev/oa.js"
+            data-key="oa_pk_QhwoLoWbNZFdbb4h9IjVP__7790SZmcS"
+            data-collector="https://c.analytics.yz13.dev"
+          />
+        )}
+      </head>
       <body
         className={cn(
           "antialiased",
@@ -144,14 +152,6 @@ export default function RootLayout({
             </TooltipProvider>
           </ThemeProvider>
         </NuqsAdapter>
-        {isProduction() && (
-          <Script
-            src="https://c.analytics.yz13.dev/oa.js"
-            data-key="oa_pk_QhwoLoWbNZFdbb4h9IjVP__7790SZmcS"
-            data-collector="https://c.analytics.yz13.dev"
-            strategy="afterInteractive"
-          />
-        )}
       </body>
     </html>
   );
