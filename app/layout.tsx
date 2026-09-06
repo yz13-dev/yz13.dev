@@ -123,7 +123,7 @@ export default function RootLayout({
         {isProduction() && (
           <script
             src="https://c.analytics.yz13.dev/oa.js"
-            data-key="oa_pk_QhwoLoWbNZFdbb4h9IjVP__7790SZmcS"
+            data-key="oa_pk_LfLZUsorKj9eC90jjvdBsg-leaWl-Q2F"
             data-collector="https://c.analytics.yz13.dev"
           />
         )}
