@@ -4,10 +4,10 @@ import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import type { InputSize } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/registry/components/ui/button";
+import { Input } from "@/registry/components/ui/input";
+import type { InputSize } from "@/registry/components/ui/input";
+import { Textarea } from "@/registry/components/ui/textarea";
 
 const InputGroupContext = React.createContext<{ size: InputSize }>({
   size: "default",
